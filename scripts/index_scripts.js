@@ -1,6 +1,6 @@
 var estados;
 var escolas;
-
+var escolasNomesApenas;
 window.onload = function () {
     if(self.fetch) {
         // execute minha solicitação do fetch
@@ -13,6 +13,7 @@ window.onload = function () {
     } else {
         // faça solicitação de lista de estados por meio de XMLHttpRequest
     }
+
 };
 
 
@@ -26,7 +27,6 @@ function listarEstados(estadosRetornados) {
         estadosSelect.add(op)
     }
 }
-
 
 function itemEstadoMudado() {
     var sel = document.getElementById("selecionar_estados");
@@ -46,7 +46,16 @@ function itemEstadoMudado() {
     }
 }
 
+/**
+ * Função que coloca os dados retorndos numa variável e filtra apenas os nomes em outra variável.
+ * @param retornados dados retornados da consulta
+ */
 function recuperarDados(retornados) {
     escolas = retornados;
+    escolasNomesApenas = new Array();
+    for (var i in retornados){
+        escolasNomesApenas.push(retornados[i]["dim:escola:nome"]);
+    }
     console.log(escolas);
+    console.log(escolasNomesApenas);
 }

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Minha escola no PNE</title>
 
     <!-- BOOTSTRAP -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
-
-    <!--Scripts -->
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- ESTILOS -->
     <!-- Google -->
@@ -23,47 +22,48 @@
 </head>
 
 
-
 <body>
 <!-- Início do menú -->
-<nav class="dropdown-menu-left">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu">
-                <i class="material-icons">menu</i>
-            </button>
-        </div>
-        <nav id="links-menu" class="collapse navbar-collapse">
-            <!-- links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html">Pesquise</a></li>
-                <li><a href="#">Entenda as métricas</a></li>
-                <li><a href="#">Sobre o PNE</a></li>
-                <li><a href="#">Sobre o projeto</a></li>
+            <ul class="nav  nav-pills nav-fill">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Pesquise</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Entenda as métricas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sobre o PNE</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sobre o projeto</a></li>
             </ul>
-        </nav>
-    </div>
+
 </nav>
 <!-- Fim do menú -->
 
 <!-- Formulário de pesquisa -->
-<div align="center" class="md-form">
-    <form class="form-group">
-        <select class="md-select" id="selecionar_estados" onchange="itemEstadoMudado()">
-            <option value="Selecionar" disabled selected>Selecionar...</option>
-        </select>
-        <input id="nome_escola" type="text" class="form-control">
-        <button type="submit">Procurar</button>
-    </form>
-</div>
+<form autocomplete="off" action="resultadoEscola.html" class="form-inline">
+    <select class="form_control" id="selecionar_estados" onchange="itemEstadoMudado()">
+        <option value="Selecionar" selected>Selecionar...</option>
+    </select>
+
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+    <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+                                                                       aria-hidden="true"></i></span>
+        </div>
+    </div>
+
+
+
+
+</form>
 <!-- Fim formulário de pesquisa -->
 
 </body>
 <!-- SCRIPTS -->
-<!-- bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
 <!-- meus -->
 <script src="scripts/index_scripts.js"></script>
 </html>
