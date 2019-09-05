@@ -47,14 +47,8 @@
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 
-
+/* Preenchimento do link selecionado no menú*/
 .nav-link.active-meu{
     color: #fff;
     background-color: #ffa500;
-}
-
-.nav-tabs .nav-link-meu.disabled {
-    color: #7d090b;
-    background-color: transparent;
-    border-color: transparent;
 }
