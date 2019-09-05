@@ -2,6 +2,7 @@ var estados;
 var escolas;
 var escolasNomesApenas;
 window.onload = function () {
+    //Iniciar busca de estados
     if(self.fetch) {
         // execute minha solicitação do fetch
         console.log("Iniciando busca de estados");
@@ -13,6 +14,12 @@ window.onload = function () {
     } else {
         // faça solicitação de lista de estados por meio de XMLHttpRequest
     }
+
+    // configurar os listeners dos componentes
+    // var buttonBuscar = document.getElementById("btn_iniciar_pesquisa");
+    // buttonBuscar.onsubmit(abrirReport);
+    // var campoBusca = document.getElementById("campo_nome_escola");
+    // campoBusca.addEventListener("keypress", abrirReport(event));
 
 };
 
@@ -58,4 +65,28 @@ function recuperarDados(retornados) {
     }
     console.log(escolas);
     console.log(escolasNomesApenas);
+}
+
+/**
+ * Função que recupera o id da escola ou universidade e abre a página de resultado
+ */
+function abrirReport() {
+    var campo_nome = document.getElementById("campo_nome_escola");
+    var valorDigitado = campo_nome.innerHTML.valueOf();
+    if (!valorDigitado.localeCompare("")){
+        //abrir nova página
+        console.log("Entrou no if");
+        var idEscola;
+        for(var i in escolas){
+            var nomeEscola = escolas[i]["dim:escola:nome"];
+            if (nomeEscola.localeCompare(valorDigitado)){
+                idEscola = escolas[i]["dim:escola:id"];
+                break;
+            }
+        }
+        window.location.href = "resultadoEscola.html?escolaID=" + idEscola; //+ "?_ijt=3gh9apnspscth9ckpgq1ua8ohi";
+    }else{
+        window.alert("Você deve digitar o nome de uma escola");
+    }
+    // event.preventDefault();
 }

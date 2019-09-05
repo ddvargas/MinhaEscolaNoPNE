@@ -3481,7 +3481,7 @@ input[type="button"].btn-block {
 }
 
 .input-group-prepend,
-.input-group-append {
+. input-group-append {
   display: -ms-flexbox;
   display: flex;
 }
@@ -4119,7 +4119,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #ffa500;
 }
 
 .nav-fill .nav-item {

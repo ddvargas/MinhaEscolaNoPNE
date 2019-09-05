@@ -16,6 +16,13 @@
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
 
+
+    <!-- Jquery -->
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous"></script>
+
     <!-- ESTILOS -->
     <!-- Google -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,35 +31,48 @@
 
 <body>
 <!-- Início do menú -->
-            <ul class="nav  nav-pills nav-fill">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Pesquise</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Entenda as métricas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sobre o PNE</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sobre o projeto</a></li>
-            </ul>
-
-</nav>
+<ul class="nav  nav-pills nav-fill">
+    <li class="nav-item"><a class="nav-link active-meu" href="index.html">Pesquise</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Sobre as métricas</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Sobre o PNE</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Sobre o projeto</a></li>
+</ul>
 <!-- Fim do menú -->
 
-<!-- Formulário de pesquisa -->
-<form autocomplete="off" action="resultadoEscola.html" class="form-inline">
-    <select class="form_control" id="selecionar_estados" onchange="itemEstadoMudado()">
-        <option value="Selecionar" selected>Selecionar...</option>
-    </select>
-
-    <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-    <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
-                                                                       aria-hidden="true"></i></span>
-        </div>
+<!-- Card de pesquisa + título -->
+<div class="card">
+    <!-- título -->
+    <div class="card-body">
+        <h1 class="h1-responsive h1 font-bold pt-5 mb-1 text-center py-1 text-orange px-4">Minha escola no PNE</h1>
+        <p class="card-text text-center">Quanto minha escola contibui para a educação e as metas do PNE?</p>
     </div>
+    <!-- fim título -->
 
+    <!-- Formulário de pesquisa -->
+    <form autocomplete="off" action="resultadoEscola.html" class="text-center border border-light p-5">
+        <div class="form-group">
+            <select class="browser-default custom-select custom-select-lg mb-3 "
+                    id="selecionar_estados" onchange="itemEstadoMudado()">
+                <option value="Selecionar" selected>Selecionar estado...</option>
+            </select>
+        </div>
 
+        <div class="form-group md-form md-outline form-lg ">
+            <input id="campo_nome_escola" class="form-control form-control-lg" type="text">
+            <label for="campo_nome_escola">Nome da escola</label>
+        </div>
 
-
-</form>
-<!-- Fim formulário de pesquisa -->
+        <div class="form-group">
+            <button id="btn_iniciar_pesquisa" class="btn btn-orange-meu my-5 py-sm-3" type="button"
+                    onclick="abrirReport()">
+                <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                Pesquisar
+            </button>
+        </div>
+    </form>
+    <!-- Fim do formulário de pesquisa -->
+</div>
+<!-- Fim card de pesquisa -->
 
 </body>
 <!-- SCRIPTS -->
