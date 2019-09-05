@@ -52,3 +52,8 @@
     color: #fff;
     background-color: #ffa500;
 }
+
+.card-title {
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
