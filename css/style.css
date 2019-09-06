@@ -53,7 +53,23 @@
     background-color: #ffa500;
 }
 
+/*Meu card title*/
 .card-title {
     margin-bottom: 0.75rem;
     text-align: center;
+}
+
+.page-item.active{
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+/*Estilização dos itens do menú das metas na página de resultado*/
+.nav-link {
+    display: block;
+    padding: 0.3rem 0.5rem;
 }
