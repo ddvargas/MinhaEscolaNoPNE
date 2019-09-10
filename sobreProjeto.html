@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Minha escola no PNE</title>
+    <title>Sobre o Projeto</title>
 
     <!-- BOOTSTRAP -->
     <!-- Latest compiled and minified CSS -->
@@ -32,47 +32,45 @@
 <body>
 <!-- Início do menú -->
 <ul class="nav  nav-pills nav-fill">
-    <li class="nav-item"><a class="nav-link active-meu" href="index.html">Pesquise</a></li>
+    <li class="nav-item"><a class="nav-link" href="index.html">Pesquise</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Sobre as métricas</a></li>
     <li class="nav-item"><a class="nav-link" href="sobrePNE.html">Sobre o PNE</a></li>
-    <li class="nav-item"><a class="nav-link" href="sobreProjeto.html">Sobre o projeto</a></li>
+    <li class="nav-item"><a class="nav-link active-meu" href="sobreProjeto.html">Sobre o projeto</a></li>
 </ul>
 <!-- Fim do menú -->
 
-<!-- Card de pesquisa + título -->
-<div class="card">
-    <!-- título -->
-    <div class="card-body">
-        <h1 class="h1-responsive h1 font-bold pt-5 mb-1 text-center py-1 text-orange px-4">Minha escola no PNE</h1>
-        <p class="card-text text-center">Quanto minha escola contibui para a educação e as metas do PNE?</p>
-    </div>
-    <!-- fim título -->
+<!-- Conteúdo -->
 
-    <!-- Formulário de pesquisa -->
-    <form autocomplete="off" action="resultadoEscola.html" class="text-center border border-light p-5">
-        <div class="form-group">
-            <select class="browser-default custom-select custom-select-lg mb-3 "
-                    id="selecionar_estados" onchange="itemEstadoMudado()">
-                <option value="Selecionar" selected>Selecionar estado...</option>
-            </select>
-        </div>
 
-        <div class="form-group md-form md-outline form-lg ">
-            <input id="campo_nome_escola" class="form-control form-control-lg" type="text">
-            <label for="campo_nome_escola">Nome da escola</label>
-        </div>
+<div class="jumbotron">
+    <h2 class="h1-responsive">Sobre o Projeto</h2>
+    <p class="lead">
+        A página "Minha escola no PNE" está em desenvolvimento como atividade da disciplina Projeto de Software 2,
+        do curso de Bacharelado em Sistemas de Informação da UFSM, no segundo semestre de 2019.
+        <br>
+        <br>O projeto tem como objetivo calcular, quando possível, qual a situação atual da escola quanto ao
+        cumprimento das metas estabelecidas no <a href="sobrePNE.html">PNE</a>.
+        <br>Utilizando APIs e microdados disponibilizados na internet, são exibidas informações de uma escola pesquisada.
+        Estas informações são baseadas nas metas, e suas estratégias, do PNE, que são quantificáveis por escola.
+        Por exemplo: para a Meta 2 do PNE é possível calcular por escola o índice de formação de alunos no ensino
+        fundamental na idade correta.
+        Já para a Meta 20, que visa garantir pelo menos 10% do orçamento para educação, não há como aplicar
+        cálculo individual.
+        <br>
+        <br>Este projeto é desenvolvido pelos alunos:
+        <br>Anderson Luiz de Melo
+        <br>Daniel de Vargas
+        <br>
+        <br>Com orientação dos professores:
+        <br>Andrea Schwertner Charao
+        <br>Celio Trois
+    </p>
 
-        <div class="form-group">
-            <button id="btn_iniciar_pesquisa" class="btn btn-orange-meu my-5 py-sm-3" type="button"
-                    onclick="abrirReport()">
-                <i class="fas fa-search text-grey" aria-hidden="true"></i>
-                Pesquisar
-            </button>
-        </div>
-    </form>
-    <!-- Fim do formulário de pesquisa -->
 </div>
-<!-- Fim card de pesquisa -->
+
+
+<!-- Fim conteúdo -->
+
 
 </body>
 <!-- SCRIPTS -->
