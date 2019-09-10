@@ -18,13 +18,29 @@ window.onload = function () {
             //Erro
     }
 
-    preencherDadosInstituicao(tipo);
+    //preencherDadosInstituicao(tipo);
     console.log(instituicao);
 }
 
 
 function preencherDadosInstituicao(tipo) {
-
+    switch (tipo) {
+        case 1:
+            //ESCOLA
+            //recuperar elementos
+            console.log("preenchendo");
+            var localizacaoHTML = document.getElementById("localizacao");
+            var nomeHTML = document.getElementById("nome_escola");
+            var enderecoHTML = document.getElementById("endereco");
+            var situacao = document.getElementById("situacao");
+            //preencher dados
+            localizacaoHTML.value = instituicao.localidade;
+            nomeHTML.innerHTML = instituicao.nome;
+            break;
+        case 2:
+        //ies
+        //TODO: preencher dados da IES na interface
+    }
 }
 
 /**
@@ -76,8 +92,9 @@ function recuperaSituacaoEscola(data) {
         default:
             //Desconhecida pelo sistema
             instituicao.situacao = "Desconhecida pelo sistema";
-
     }
+    var situacaoHTML = document.getElementById("situacao");
+    situacaoHTML.innerHTML = instituicao.situacao;
 }
 
 /**
@@ -192,6 +209,8 @@ function recuperarNome(data, tipo) {
         case 1:
             //escola
             instituicao.nome = data[0]["dim:escola:nome"];
+            var nomeHTML = document.getElementById("nome_escola");
+            nomeHTML.innerText = instituicao.nome;
             break;
         case 2:
             //ies
