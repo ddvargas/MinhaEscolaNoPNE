@@ -72,21 +72,28 @@ function recuperarDados(retornados) {
  */
 function abrirReport() {
     var campo_nome = document.getElementById("campo_nome_escola");
-    var valorDigitado = campo_nome.innerHTML.valueOf();
-    if (!valorDigitado.localeCompare("")){
+    var valorDigitado = campo_nome.value;
+    console.log("Valor digitado: " + valorDigitado)
+    if (!(valorDigitado == "")){
         //abrir nova página
         console.log("Entrou no if");
-        var idEscola;
+        var idEscola = 0;
+        valorDigitado.toLowerCase();
         for(var i in escolas){
             var nomeEscola = escolas[i]["dim:escola:nome"];
-            if (nomeEscola.localeCompare(valorDigitado)){
+            nomeEscola.toLowerCase();
+            if (nomeEscola == valorDigitado){
                 idEscola = escolas[i]["dim:escola:id"];
                 break;
             }
         }
-        window.location.href = "resultadoEscola.html?escolaID=" + idEscola; //+ "?_ijt=3gh9apnspscth9ckpgq1ua8ohi";
+        if (idEscola != 0){
+            window.location.href = "resultadoEscola.html?escolaID=" + idEscola;
+        }else{
+            window.alert("Não foi possível encontrar a instituição.");
+        }
     }else{
-        window.alert("Você deve digitar o nome de uma escola");
+        window.alert("Você deve digitar o nome de uma instituição.");
     }
     // event.preventDefault();
 }
