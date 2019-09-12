@@ -1,7 +1,7 @@
 var estados;
 var escolas;
 var escolasNomesApenas = [];
-const separadorCidadeEscola = " -- ";
+const separadorCidadeEscola = " - ";
 window.onload = function () {
     //Iniciar busca de estados
     if (self.fetch) {
@@ -67,16 +67,40 @@ function itemEstadoMudado() {
 function recuperarDados(retornados) {
     escolas = retornados;
     for (var i in retornados) {
-        var nome = retornados[i]["dim:escola:nome"].toLowerCase();
-        var cidadeNome = formatarCidade(retornados[i]["dim:cidade:nome"].toLowerCase());
+        var nome = formatarInstituicao(retornados[i]["dim:escola:nome"]);
+        var cidadeNome = formatarCidade(retornados[i]["dim:cidade:nome"]);
         escolasNomesApenas.push(nome + separadorCidadeEscola + cidadeNome);
     }
     console.log(escolas);
     // console.log(escolasNomesApenas);
 }
 
+/**
+ * Formata o nome da cidade para tirar  o \t e deixar as letras iniciais maiusculas
+ * @param instituicao
+ * @returns {string}
+ */
 function formatarInstituicao(instituicao) {
+    if (instituicao){
+        var wordsToIgnore = ["das", "dos", "da", "do", "de"];
+        var minLenght = 3;
 
+        var instituicaoNova = "";
+
+        instituicao = instituicao.toLowerCase();
+        instituicao = instituicao.replace(/\t/g, ' ');
+        instituicao = getWords(instituicao);
+        for (var i in instituicao){
+            if (wordsToIgnore.indexOf(instituicao[i]) == -1 && instituicao[i].length > minLenght){
+                instituicao[i] = instituicao[i].charAt(0).toUpperCase() + instituicao[i].slice(1);
+            }
+            instituicaoNova += instituicao[i] + " ";
+        }
+
+        instituicao = instituicaoNova;
+    }
+
+    return instituicao;
 }
 
 /**
@@ -98,7 +122,9 @@ function formatarCidade(cidade) {
         var wordsToIgnore = ["das", "dos", "da", "do", "de", "dalla"];
         var minLenght = 3;
         var cidadeNova = "";
-        cidade = cidade.replace(/\t/, " ");
+
+        cidade = cidade.toLowerCase();
+        cidade = cidade.replace(/\t/g, ' ');
         cidade = getWords(cidade);
         for (var i in cidade){
             if (wordsToIgnore.indexOf(cidade[i]) == -1 && cidade[i].length > minLenght){
@@ -116,14 +142,16 @@ function formatarCidade(cidade) {
  */
 function abrirReport() {
     var campo_nome = document.getElementById("campo_nome_escola");
-    var valorDigitado = campo_nome.value;
-    valorDigitado = valorDigitado.replace(/\s/g, '');
     console.log("Valor digitado: " + valorDigitado);
+
+    var valorDigitado = campo_nome.value;
     if (!(valorDigitado == "")) {
         //abrir nova página
-        console.log("Entrou no if");
+        valorDigitado = valorDigitado.replace(/\s/g, '');
+        valorDigitado = valorDigitado.toLowerCase();
         var idEscola = 0;
-        valorDigitado.toLowerCase();
+
+        console.log("Entrou no if");
         for (var i in escolas) {
             var nomeEscola = escolas[i]["dim:escola:nome"];
             nomeEscola = nomeEscola.toLowerCase();
