@@ -18,12 +18,6 @@ window.onload = function () {
         // faça solicitação de lista de estados por meio de XMLHttpRequest
     }
 
-    // configurar os listeners dos componentes
-    // var buttonBuscar = document.getElementById("btn_iniciar_pesquisa");
-    // buttonBuscar.onsubmit(abrirReport);
-    // var campoBusca = document.getElementById("campo_nome_escola");
-    // campoBusca.addEventListener("keypress", abrirReport(event));
-
 };
 
 
@@ -191,11 +185,10 @@ function autoPreencherCampoBusca(value) {
  * @type {{data: *, theme: string, list: {match: {enabled: boolean}}}}
  */
 var options = {
-
     data: escolasNomesApenas,
     list: {
         // numero máximo de elementos que deve aparecer na lista de opçãos
-        maxNumberOfElements: 10,
+        maxNumberOfElements: 8,
         //?
         match: {
             enabled: true
@@ -207,15 +200,17 @@ var options = {
         //animação ao mostrar
         showAnimation: {
             type: "slide", //normal|slide|fade
-            time: 300,//tempo duracao
+            time: 400,//tempo duracao
             callback: function() {}
         },
         //animacao ao esconder
         hideAnimation: {
             type: "slide", //normal|slide|fade
-            time: 300,//tempo duracao
+            time: 400,//tempo duracao
             callback: function() {}
         },
+        //tema/estilo
+        // theme: "dark",
         //recupera o indice do item selecionado
         onChooseEvent: function () {
             var indiceSelecionadoNoAutocomplete = $("#campo_nome_escola").getSelectedItemData();
