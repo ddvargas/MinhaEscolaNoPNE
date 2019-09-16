@@ -104,3 +104,10 @@
 .easy-autocomplete.eac-square {
     font-family: "Roboto", sans-serif;
 }
+
+.btn-primary-meu {
+    color: #fff;
+    background-color: #ffa500;
+    border-color: #ffa500;
+}
+
