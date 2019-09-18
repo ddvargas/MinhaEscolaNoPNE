@@ -156,7 +156,7 @@
                         <br>Porcentagem que a escola contribui a meta 1 dentro de seu município.
                         <br>
                         <br>Fontes de dados:
-                        <br>Exemplo de total de crianças de 4 e 5 anos matrículadas em uma escola (a) com o id informado ao final da linha
+                        <br>Exemplo de total de crianças de 4 e 5 anos matriculadas em uma escola (a) com o id informado ao final da linha
                         <br><a href="https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:escola:id==11022370"
                                target="_blank">https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:escola:id==11022370</a>
                         <br>Exemplo de total (b) de crianças com 4 anos de idade para uma cidade (Santa Maria - RS)
@@ -199,18 +199,42 @@
                     anos e garantir que pelo menos 95% (noventa e cinco por cento) dos alunos concluam essa etapa na
                     idade recomendada, até o último ano de vigência deste PNE.
                 </p>
+
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta02" aria-expanded="false" aria-controls="collapseMeta02">
-                        Testes
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta02a" aria-expanded="false" aria-controls="collapseMeta02a">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta02b" aria-expanded="false" aria-controls="collapseMeta02b">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta02">
+                <div class="collapse" id="collapseMeta02a">
                     <div class="mt-3">
-                        TestesTestesTestesTestesTestesTestes
+                        <br>Métrica 1
+                        <br>Relação entre alunos de 6 a 14 anos da escola em questão(a) e o total de crianças de 6 a 14 anos no município (b).
+                        <br>Forma de cálculo: (a/b) / 100
+                        <br>Porcentagem que a escola contribui a meta 1 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Consulta o total de crianças de 6 a 14 anos matriculadas em uma escola (a) com o id informado ao final da linha
+                        <br><a href="https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}"
+                               target="_blank">https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}</a>
+                        <br>Consultas para obter o total de crianças entre 6 e 14 anos de um município (substituir {id_município} pelo id)
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_município}/v/93//C287/93085"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/4316907/v/93//C287/6561 retorna população de 10 a 14 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084 retorna população de 5 a 9 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562 retorna população de 5 anos</a>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta02b">
+                    <div class="mt-3">
+                        <br>Empty Spaces
                     </div>
                 </div>
                 <!-- / Collapsible element -->
@@ -365,23 +389,12 @@
                     mais pobres, e igualar a escolaridade média entre negros e não negros declarados à
                     Fundação Instituto Brasileiro de Geografia e Estatística - IBGE.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta08" aria-expanded="false" aria-controls="collapseMeta08">
-                        Link with href
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
 
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta08">
-                    <div class="mt-3">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica,
-                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h3 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h3>
+            </div>
             </div>
 
             <!-- meta09 -->
@@ -393,23 +406,12 @@
                     inteiros e cinco décimos por cento) até 2015 e, até o final da vigência deste PNE, erradicar o
                     analfabetismo absoluto e reduzir em 50% (cinquenta por cento) a taxa de analfabetismo funcional.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta09" aria-expanded="false" aria-controls="collapseMeta09">
-                        Link with href
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
 
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta09">
-                    <div class="mt-3">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica,
-                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h3 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h3>
+            </div>
             </div>
 
             <!-- meta10 -->
@@ -420,23 +422,12 @@
                     Oferecer, no mínimo, 25% (vinte e cinco por cento) das matrículas de educação de jovens e adultos,
                     nos ensinos fundamental e médio, na forma integrada à educação profissional.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta10" aria-expanded="false" aria-controls="collapseMeta10">
-                        Link with href
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
 
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta10">
-                    <div class="mt-3">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica,
-                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h3 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h3>
+            </div>
             </div>
 
             <!-- meta11 -->
@@ -618,23 +609,12 @@
                     equiparar seu rendimento médio ao dos (as) demais profissionais com escolaridade equivalente,
                     até o final do sexto ano de vigência deste PNE.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta17" aria-expanded="false" aria-controls="collapseMeta17">
-                        Link with href
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
 
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta17">
-                    <div class="mt-3">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica,
-                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h3 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h3>
+            </div>
             </div>
 
             <!-- meta18 -->
@@ -647,23 +627,12 @@
                     (as) profissionais da educação básica pública, tomar como referência o piso salarial nacional
                     profissional, definido em lei federal, nos termos do inciso VIII do art. 206 da Constituição Federal.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta18" aria-expanded="false" aria-controls="collapseMeta18">
-                        Link with href
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
 
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta18">
-                    <div class="mt-3">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica,
-                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h3 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h3>
+            </div>
             </div>
 
             <!-- meta19 -->
@@ -703,23 +672,11 @@
                     (sete por cento) do Produto Interno Bruto - PIB do País no 5º (quinto) ano de vigência desta Lei e,
                     no mínimo, o equivalente a 10% (dez por cento) do PIB ao final do decênio.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta20" aria-expanded="false" aria-controls="collapseMeta20">
-                        Link with href
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
 
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta20">
-                    <div class="mt-3">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica,
-                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h3 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h3>
             </div>
 
 
