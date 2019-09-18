@@ -111,3 +111,15 @@
     border-color: #ffa500;
 }
 
+
+.card-header-meu {
+    margin-bottom: 0;
+    background-color: #FFC14D;
+}
+
+.card-title-collapse{
+    text-align: center;
+    margin: 0.5%;
+    background: none;
+}
+

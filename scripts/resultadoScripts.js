@@ -297,7 +297,6 @@ function recuperarEtapas(data) {
     container.appendChild(elementoEducProf);
 }
 
-
 /**
  * Recupera a siatuação da escola no banco, pelo seu ID
  * @param id identificador único da escola no banco
