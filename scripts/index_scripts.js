@@ -22,11 +22,22 @@ window.onload = function () {
 
 
 function listarEstados(estadosRetornados) {
-    console.log(estadosRetornados);
-    //testar o tamanho dos estados selecionados
-    var estadosSelect = document.getElementById("selecionar_estados");
+    //console.log(estadosRetornados);
+
+    // ordena e imprime estados retornados
+    var estadosOrdenados = [];
     for (var i in estadosRetornados) {
         var nome = estadosRetornados[i]["dim:estado:nome"];
+        estadosOrdenados.push(nome);
+    }
+    estadosOrdenados.sort();
+    console.log(estadosOrdenados);
+
+    //testar o tamanho dos estados selecionados
+    // e adiciona ao select da página index
+    var estadosSelect = document.getElementById("selecionar_estados");
+    for (var i in estadosOrdenados) {
+        var nome = estadosOrdenados[i];
         var op = new Option(nome, nome, false, false);
         estadosSelect.add(op)
     }
