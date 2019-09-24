@@ -77,7 +77,7 @@ function recuperarDados(retornados) {
         escolasNomesApenas.push(nome + separadorCidadeEscola + cidadeNome);
     }
     console.log(escolas);
-    // console.log(escolasNomesApenas);
+    console.log(escolasNomesApenas);
 }
 
 /**
@@ -99,7 +99,7 @@ function formatarInstituicao(instituicao) {
             if (wordsToIgnore.indexOf(instituicao[i]) == -1 && instituicao[i].length > minLenght){
                 instituicao[i] = instituicao[i].charAt(0).toUpperCase() + instituicao[i].slice(1);
             }
-            instituicaoNova += instituicao[i] + " ";
+            instituicaoNova += instituicao[i];
         }
 
         instituicao = instituicaoNova;
@@ -135,7 +135,7 @@ function formatarCidade(cidade) {
             if (wordsToIgnore.indexOf(cidade[i]) == -1 && cidade[i].length > minLenght){
                 cidade[i] = cidade[i].charAt(0).toUpperCase() + cidade[i].slice(1);
             }
-            cidadeNova += cidade[i] + " ";
+            cidadeNova += cidade[i];
         }
         cidade = cidadeNova;
     }
