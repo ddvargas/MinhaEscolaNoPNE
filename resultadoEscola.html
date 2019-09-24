@@ -58,11 +58,12 @@
 
     <!-- apresentação dos resultados -->
     <div class="row">
+        <!-- menu lateral -->
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <!-- Meta 01 -->
-                <a class="nav-link" id="v-pills-tab-meta01" data-toggle="pill" href="#v-pills-meta01" role="tab"
-                   aria-controls="v-pills-meta01" aria-selected="true">Meta 1</a>
+                <a class="nav-link active" id="v-pills-tab-meta01" data-toggle="pill" href="#v-pills-meta01" role="tab"
+                   aria-controls="v-pills-incio" aria-selected="true">Meta 1</a>
                 <!-- Meta 02 -->
                 <a class="nav-link" id="v-pills-tab-meta02" data-toggle="pill" href="#v-pills-meta02" role="tab"
                    aria-controls="v-pills-meta02" aria-selected="false">Meta 2</a>
@@ -122,32 +123,52 @@
                    aria-controls="v-pills-meta20" aria-selected="false">Meta 20</a>
             </div>
         </div>
+        <!-- /menu lateral -->
+
+        <!-- conteúdo para os menus -->
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
 
                 <!-- meta01 -->
-                <div class="tab-pane fade" id="v-pills-meta01" role="tabpanel" aria-labelledby="v-pills-tab-meta01">
+                <div class="tab-pane fade show active" id="v-pills-inicio" role="tabpanel" aria-labelledby="v-pills-tab-meta01">
                     <br>
                     <h2 class="h1-responsive">Educação Infantil</h2>
                     <div class="container">
                         <div class="row">
                             <p class="lead">
-                                Universalizar, até 2016, a educação infantil na pré-escola para as crianças de 4 (quatro) a 5 (cinco)
-                                anos de idade e ampliar a oferta de educação infantil em creches de forma a atender, no mínimo, 50%
-                                (cinquenta por cento) das crianças de até 3 (três) anos até o final da vigência deste PNE.
+                                Universalizar, até 2016, a educação infantil na pré-escola para as crianças de 4
+                                (quatro) a 5 (cinco)
+                                anos de idade e ampliar a oferta de educação infantil em creches de forma a atender, no
+                                mínimo, 50%
+                                (cinquenta por cento) das crianças de até 3 (três) anos até o final da vigência deste
+                                PNE.
                             </p>
                         </div>
                         <!-- graficos -->
                         <div class="row">
                             <div class="col-5">
-                                <p><b>Objetivo meta 1.1: </b>O objetivo é...</p>
-                                <p><b>Escola na meta 1.1: </b> Para sua escola... </p>
-                                <canvas id="pieChartMeta11"></canvas>
+                                <p>
+                                    <b>Objetivo meta 1.1: </b>
+                                    Atender 50% das crianças menores de 3 anos e 11 meses na creche.
+                                </p>
+                                <p>
+                                    <b>Escola na meta 1.1: </b>
+                                    Com relação a sua instituição, atender pelo menos metade das crianças menores de
+                                    3 anos e 11 meses do município.
+                                </p>
+                                <canvas id="pieChartMeta12"></canvas>
                             </div>
                             <div class="col-5">
-                                <p><b>Objetivo meta 1.1: </b>O objetivo é...</p>
-                                <p><b>Escola na meta 1.1: </b> Para sua escola... </p>
-                                <canvas id="pieChartMeta12"></canvas>
+                                <p>
+                                    <b>Objetivo meta 1.2: </b>
+                                    Matricular todas as crianças de 4 a 5 anos na Pré-escola.
+                                </p>
+                                <p>
+                                    <b>Escola na meta 1.2: </b>
+                                    Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do
+                                    município na Pré-escola .
+                                </p>
+                                <canvas id="pieChartMeta11"></canvas>
                             </div>
                         </div>
                         <!-- /graficos -->
@@ -162,8 +183,10 @@
                     <div class="container">
                         <div class="row">
                             <p class="lead">
-                                Universalizar o ensino fundamental de 9 (nove) anos para toda a população de 6 (seis) a 14 (quatorze)
-                                anos e garantir que pelo menos 95% (noventa e cinco por cento) dos alunos concluam essa etapa na
+                                Universalizar o ensino fundamental de 9 (nove) anos para toda a população de 6 (seis) a
+                                14 (quatorze)
+                                anos e garantir que pelo menos 95% (noventa e cinco por cento) dos alunos concluam essa
+                                etapa na
                                 idade recomendada, até o último ano de vigência deste PNE.
                             </p>
                         </div>
@@ -197,8 +220,10 @@
                     <div class="container">
                         <div class="row">
                             <p class="lead">
-                                Universalizar, até 2016, o atendimento escolar para toda a população de 15 (quinze) a 17 (dezessete)
-                                anos e elevar, até o final do período de vigência deste PNE, a taxa líquida de matrículas no ensino
+                                Universalizar, até 2016, o atendimento escolar para toda a população de 15 (quinze) a 17
+                                (dezessete)
+                                anos e elevar, até o final do período de vigência deste PNE, a taxa líquida de
+                                matrículas no ensino
                                 médio para 85% (oitenta e cinco por cento).
                             </p>
                         </div>
@@ -228,69 +253,115 @@
                 <div class="tab-pane fade" id="v-pills-meta04" role="tabpanel" aria-labelledby="v-pills-tab-meta04">
                     <br>
                     <h2 class="h1-responsive">Educação Especial/Inclusiva</h2>
-                    <p class="lead">
-                        Universalizar, para a população de 4 (quatro) a 17 (dezessete) anos com deficiência, transtornos
-                        globais do desenvolvimento e altas habilidades ou superdotação, o acesso à educação básica e ao
-                        atendimento educacional especializado, preferencialmente na rede regular de ensino, com a garantia
-                        de sistema educacional inclusivo, de salas de recursos multifuncionais, classes, escolas
-                        ou serviços especializados, públicos ou conveniados.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta04" aria-expanded="false" aria-controls="collapseMeta04">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta04">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Universalizar, para a população de 4 (quatro) a 17 (dezessete) anos com deficiência,
+                                transtornos
+                                globais do desenvolvimento e altas habilidades ou superdotação, o acesso à educação
+                                básica e ao
+                                atendimento educacional especializado, preferencialmente na rede regular de ensino, com
+                                a garantia
+                                de sistema educacional inclusivo, de salas de recursos multifuncionais, classes, escolas
+                                ou serviços especializados, públicos ou conveniados.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 4.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 4.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta41"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p>Não há metricas definidas para a meta 4.2 </p>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta04 -->
 
                 <!-- meta05 -->
                 <div class="tab-pane fade" id="v-pills-meta05" role="tabpanel" aria-labelledby="v-pills-tab-meta05">
                     <br>
                     <h2 class="h1-responsive">Alfabetização</h2>
-                    <p class="lead">
-                        Alfabetizar todas as crianças, no máximo, até o final do 3º (terceiro) ano do ensino fundamental.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta05" aria-expanded="false" aria-controls="collapseMeta05">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
 
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta05">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Alfabetizar todas as crianças, no máximo, até o final do 3º (terceiro) ano do ensino
+                                fundamental.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 5.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 5.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta51"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 5.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 5.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta52"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 5.3: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 5.3: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta53"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta05 -->
 
                 <!-- meta06 -->
                 <div class="tab-pane fade" id="v-pills-meta06" role="tabpanel" aria-labelledby="v-pills-tab-meta06">
                     <br>
                     <h2 class="h1-responsive">Educação Integral</h2>
-                    <p class="lead">
-                        Oferecer educação em tempo integral em, no mínimo, 50% (cinquenta por cento) das escolas públicas,
-                        de forma a atender, pelo menos, 25% (vinte e cinco por cento) dos (as) alunos (as) da educação básica.
-                    </p>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Oferecer educação em tempo integral em, no mínimo, 50% (cinquenta por cento) das escolas
+                                públicas,
+                                de forma a atender, pelo menos, 25% (vinte e cinco por cento) dos (as) alunos (as) da
+                                educação básica.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 6.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 6.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta61"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 6.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 6.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta62"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Collapse buttons -->
                     <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta06" aria-expanded="false" aria-controls="collapseMeta06">
+                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta06"
+                           aria-expanded="false" aria-controls="collapseMeta06">
                             Link with href
                         </a>
                     </div>
@@ -299,1663 +370,473 @@
                     <!-- Collapsible element -->
                     <div class="collapse" id="collapseMeta06">
                         <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid. Nihil anim
                             keffiyeh helvetica,
                             craft beer labore wes anderson cred nesciunt sapiente ea proident.
                         </div>
                     </div>
                     <!-- / Collapsible element -->
                 </div>
+                <!-- /meta06 -->
 
                 <!-- meta07 -->
                 <div class="tab-pane fade" id="v-pills-meta07" role="tabpanel" aria-labelledby="v-pills-tab-meta07">
                     <br>
                     <h2 class="h1-responsive">Aprendizado Adequado na Idade Certa</h2>
-                    <p class="lead">
-                        Fomentar a qualidade da educação básica em todas as etapas e modalidades, com melhoria do fluxo
-                        escolar e da aprendizagem de modo a atingir as seguintes médias nacionais para o Ideb: "adicionar tabela"
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta07" aria-expanded="false" aria-controls="collapseMeta07">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta07">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Fomentar a qualidade da educação básica em todas as etapas e modalidades, com melhoria
+                                do fluxo
+                                escolar e da aprendizagem de modo a atingir as seguintes médias nacionais para o Ideb:
+                                "adicionar tabela"
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 7.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 7.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta71"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 7.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 7.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta72"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 7.3: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 7.3: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta73"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta07 -->
 
                 <!-- meta08 -->
                 <div class="tab-pane fade" id="v-pills-meta08" role="tabpanel" aria-labelledby="v-pills-tab-meta08">
                     <br>
                     <h2 class="h1-responsive">Escolaridade Média</h2>
-                    <p class="lead">
-                        Elevar a escolaridade média da população de 18 (dezoito) a 29 (vinte e nove) anos, de modo a
-                        alcançar, no mínimo, 12 (doze) anos de estudo no último ano de vigência deste Plano, para as
-                        populações do campo, da região de menor escolaridade no País e dos 25% (vinte e cinco por cento)
-                        mais pobres, e igualar a escolaridade média entre negros e não negros declarados à
-                        Fundação Instituto Brasileiro de Geografia e Estatística - IBGE.
-                    </p>
-
-
-                    <br>
-                    <h2 class="h3-responsive">
-                        Esta meta não se encaixa no escopo deste projeto.
-                    </h2>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Elevar a escolaridade média da população de 18 (dezoito) a 29 (vinte e nove) anos, de
+                                modo a
+                                alcançar, no mínimo, 12 (doze) anos de estudo no último ano de vigência deste Plano,
+                                para as
+                                populações do campo, da região de menor escolaridade no País e dos 25% (vinte e cinco
+                                por cento)
+                                mais pobres, e igualar a escolaridade média entre negros e não negros declarados à
+                                Fundação Instituto Brasileiro de Geografia e Estatística - IBGE.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <h2 class="h3-responsive">
+                                Esta meta não se encaixa no escopo deste projeto.
+                            </h2>
+                        </div>
+                    </div>
                 </div>
+                <!-- /meta08 -->
 
                 <!-- meta09 -->
                 <div class="tab-pane fade" id="v-pills-meta09" role="tabpanel" aria-labelledby="v-pills-tab-meta09">
                     <br>
                     <h2 class="h1-responsive">Alfabetização e Alfabetismo Funcional de Jovens e Adultos</h2>
-                    <p class="lead">
-                        Elevar a taxa de alfabetização da população com 15 (quinze) anos ou mais para 93,5% (noventa e três
-                        inteiros e cinco décimos por cento) até 2015 e, até o final da vigência deste PNE, erradicar o
-                        analfabetismo absoluto e reduzir em 50% (cinquenta por cento) a taxa de analfabetismo funcional.
-                    </p>
-
-                    <br>
-                    <h2 class="h3-responsive">
-                        Esta meta não se encaixa no escopo deste projeto.
-                    </h2>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Elevar a taxa de alfabetização da população com 15 (quinze) anos ou mais para 93,5%
+                                (noventa e três
+                                inteiros e cinco décimos por cento) até 2015 e, até o final da vigência deste PNE,
+                                erradicar o
+                                analfabetismo absoluto e reduzir em 50% (cinquenta por cento) a taxa de analfabetismo
+                                funcional.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 9.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 9.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta91"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 9.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 9.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta92"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /meta09 -->
 
                 <!-- meta10 -->
                 <div class="tab-pane fade" id="v-pills-meta10" role="tabpanel" aria-labelledby="v-pills-tab-meta10">
                     <br>
                     <h2 class="h1-responsive">EJA Integrada à Educação Profissional</h2>
-                    <p class="lead">
-                        Oferecer, no mínimo, 25% (vinte e cinco por cento) das matrículas de educação de jovens e adultos,
-                        nos ensinos fundamental e médio, na forma integrada à educação profissional.
-                    </p>
-
-                    <br>
-                    <h2 class="h3-responsive">
-                        Esta meta não se encaixa no escopo deste projeto.
-                    </h2>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Oferecer, no mínimo, 25% (vinte e cinco por cento) das matrículas de educação de jovens
+                                e adultos,
+                                nos ensinos fundamental e médio, na forma integrada à educação profissional.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 10.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 10.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta101"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /meta10 -->
 
                 <!-- meta11 -->
                 <div class="tab-pane fade" id="v-pills-meta11" role="tabpanel" aria-labelledby="v-pills-tab-meta11">
                     <br>
                     <h2 class="h1-responsive">Educação Profissional</h2>
-                    <p class="lead">
-                        Triplicar as matrículas da educação profissional técnica de nível médio, assegurando a qualidade da
-                        oferta e pelo menos 50% (cinquenta por cento) da expansão no segmento público.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta11" aria-expanded="false" aria-controls="collapseMeta11">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta11">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Triplicar as matrículas da educação profissional técnica de nível médio, assegurando a
+                                qualidade da
+                                oferta e pelo menos 50% (cinquenta por cento) da expansão no segmento público.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 11.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 11.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta111"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 11.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 11.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta112"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta11 -->
 
                 <!-- meta12 -->
                 <div class="tab-pane fade" id="v-pills-meta12" role="tabpanel" aria-labelledby="v-pills-tab-meta12">
                     <br>
                     <h2 class="h1-responsive">Educação Superior</h2>
-                    <p class="lead">
-                        Elevar a taxa bruta de matrícula na educação superior para 50% (cinquenta por cento) e a taxa
-                        líquida para 33% (trinta e três por cento) da população de 18 (dezoito) a 24 (vinte e quatro) anos,
-                        assegurada a qualidade da oferta e expansão para, pelo menos, 40% (quarenta por cento) das
-                        novas matrículas, no segmento público.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta12" aria-expanded="false" aria-controls="collapseMeta12">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta12">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Elevar a taxa bruta de matrícula na educação superior para 50% (cinquenta por cento) e a
+                                taxa
+                                líquida para 33% (trinta e três por cento) da população de 18 (dezoito) a 24 (vinte e
+                                quatro) anos,
+                                assegurada a qualidade da oferta e expansão para, pelo menos, 40% (quarenta por cento)
+                                das
+                                novas matrículas, no segmento público.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 12.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 12.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta121"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 12.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 12.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta122"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 12.3: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 12.3: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta123"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta12 -->
 
                 <!-- meta13 -->
                 <div class="tab-pane fade" id="v-pills-meta13" role="tabpanel" aria-labelledby="v-pills-tab-meta13">
                     <br>
                     <h2 class="h1-responsive">Titulação de Professores da Educação Superior</h2>
-                    <p class="lead">
-                        Elevar a qualidade da educação superior e ampliar a proporção de mestres e doutores do corpo docente
-                        em efetivo exercício no conjunto do sistema de educação superior para 75% (setenta e cinco por cento),
-                        sendo, do total, no mínimo, 35% (trinta e cinco por cento) doutores.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta13" aria-expanded="false" aria-controls="collapseMeta13">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta13">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Elevar a qualidade da educação superior e ampliar a proporção de mestres e doutores do
+                                corpo docente
+                                em efetivo exercício no conjunto do sistema de educação superior para 75% (setenta e
+                                cinco por cento),
+                                sendo, do total, no mínimo, 35% (trinta e cinco por cento) doutores.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 13.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 13.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta131"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 13.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 13.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta132"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta13 -->
 
                 <!-- meta14 -->
                 <div class="tab-pane fade" id="v-pills-meta14" role="tabpanel" aria-labelledby="v-pills-tab-meta14">
                     <br>
                     <h2 class="h1-responsive">Pós-graduação</h2>
-                    <p class="lead">
-                        Elevar gradualmente o número de matrículas na pós-graduação stricto sensu, de modo a atingir a
-                        titulação anual de 60.000 (sessenta mil) mestres e 25.000 (vinte e cinco mil) doutores.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta14" aria-expanded="false" aria-controls="collapseMeta14">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta14">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Elevar gradualmente o número de matrículas na pós-graduação stricto sensu, de modo a
+                                atingir a
+                                titulação anual de 60.000 (sessenta mil) mestres e 25.000 (vinte e cinco mil) doutores.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 14.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 14.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta141"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 14.2: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 14.2: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta142"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta14 -->
 
                 <!-- meta15 -->
                 <div class="tab-pane fade" id="v-pills-meta15" role="tabpanel" aria-labelledby="v-pills-tab-meta15">
                     <br>
                     <h2 class="h1-responsive">Formação de Professores</h2>
-                    <p class="lead">
-                        Garantir, em regime de colaboração entre a União, os Estados, o Distrito Federal e os Municípios, no
-                        prazo de 1 (um) ano de vigência deste PNE, política nacional de formação dos profissionais da
-                        educação de que tratam os incisos I, II e III do caput do art. 61 da Lei nº 9.394, de 20 de dezembro de 1996,
-                        assegurado que todos os professores e as professoras da educação básica possuam formação específica
-                        de nível superior, obtida em curso de licenciatura na área de conhecimento em que atuam.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta15" aria-expanded="false" aria-controls="collapseMeta15">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta15">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Garantir, em regime de colaboração entre a União, os Estados, o Distrito Federal e os
+                                Municípios, no
+                                prazo de 1 (um) ano de vigência deste PNE, política nacional de formação dos
+                                profissionais da
+                                educação de que tratam os incisos I, II e III do caput do art. 61 da Lei nº 9.394, de 20
+                                de dezembro de 1996,
+                                assegurado que todos os professores e as professoras da educação básica possuam formação
+                                específica
+                                de nível superior, obtida em curso de licenciatura na área de conhecimento em que atuam.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <h2 class="h3-responsive">
+                                Esta meta não se encaixa no escopo deste projeto.
+                            </h2>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta15 -->
 
                 <!-- meta16 -->
                 <div class="tab-pane fade" id="v-pills-meta16" role="tabpanel" aria-labelledby="v-pills-tab-meta16">
                     <br>
                     <h2 class="h1-responsive">Formação continuada e pós-graduação de professores</h2>
-                    <p class="lead">
-                        Formar, em nível de pós-graduação, 50% (cinquenta por cento) dos professores da educação básica,
-                        até o último ano de vigência deste PNE, e garantir a todos (as) os (as) profissionais da educação
-                        básica formação continuada em sua área de atuação, considerando as necessidades, demandas e
-                        contextualizações dos sistemas de ensino.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta16" aria-expanded="false" aria-controls="collapseMeta16">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta16">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Formar, em nível de pós-graduação, 50% (cinquenta por cento) dos professores da educação
+                                básica,
+                                até o último ano de vigência deste PNE, e garantir a todos (as) os (as) profissionais da
+                                educação
+                                básica formação continuada em sua área de atuação, considerando as necessidades,
+                                demandas e
+                                contextualizações dos sistemas de ensino.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <!-- graficos -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p><b>Objetivo meta 16.1: </b>O objetivo é...</p>
+                                        <p><b>Escola na meta 16.1: </b> Para sua escola... </p>
+                                        <canvas id="pieChartMeta161"></canvas>
+                                    </div>
+                                    <div class="col-5">
+                                        <br>
+                                        <h2 class="h3-responsive">
+                                            Esta meta não se encaixa no escopo deste projeto.
+                                        </h2>
+                                    </div>
+                                </div>
+                                <!-- /graficos -->
+                            </div>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta16 -->
 
                 <!-- meta17 -->
                 <div class="tab-pane fade" id="v-pills-meta17" role="tabpanel" aria-labelledby="v-pills-tab-meta17">
                     <br>
                     <h2 class="h1-responsive">Valorização do Professor</h2>
-                    <p class="lead">
-                        Valorizar os (as) profissionais do magistério das redes públicas de educação básica de forma a
-                        equiparar seu rendimento médio ao dos (as) demais profissionais com escolaridade equivalente,
-                        até o final do sexto ano de vigência deste PNE.
-                    </p>
-
-                    <br>
-                    <h2 class="h3-responsive">
-                        Esta meta não se encaixa no escopo deste projeto.
-                    </h2>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Valorizar os (as) profissionais do magistério das redes públicas de educação básica de
+                                forma a
+                                equiparar seu rendimento médio ao dos (as) demais profissionais com escolaridade
+                                equivalente,
+                                até o final do sexto ano de vigência deste PNE.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <h2 class="h3-responsive">
+                                Esta meta não se encaixa no escopo deste projeto.
+                            </h2>
+                        </div>
+                    </div>
                 </div>
+                <!-- /meta17 -->
 
                 <!-- meta18 -->
                 <div class="tab-pane fade" id="v-pills-meta18" role="tabpanel" aria-labelledby="v-pills-tab-meta18">
                     <br>
                     <h2 class="h1-responsive">Plano de Carreira Docente</h2>
-                    <p class="lead">
-                        Assegurar, no prazo de 2 (dois) anos, a existência de planos de Carreira para os (as) profissionais
-                        da educação básica e superior pública de todos os sistemas de ensino e, para o plano de Carreira dos
-                        (as) profissionais da educação básica pública, tomar como referência o piso salarial nacional
-                        profissional, definido em lei federal, nos termos do inciso VIII do art. 206 da Constituição Federal.
-                    </p>
-
-                    <br>
-                    <h2 class="h3-responsive">
-                        Esta meta não se encaixa no escopo deste projeto.
-                    </h2>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Assegurar, no prazo de 2 (dois) anos, a existência de planos de Carreira para os (as)
+                                profissionais
+                                da educação básica e superior pública de todos os sistemas de ensino e, para o plano de
+                                Carreira dos
+                                (as) profissionais da educação básica pública, tomar como referência o piso salarial
+                                nacional
+                                profissional, definido em lei federal, nos termos do inciso VIII do art. 206 da
+                                Constituição Federal.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <h2 class="h3-responsive">
+                                Esta meta não se encaixa no escopo deste projeto.
+                            </h2>
+                        </div>
+                    </div>
                 </div>
+                <!-- /meta18 -->
 
                 <!-- meta19 -->
                 <div class="tab-pane fade" id="v-pills-meta19" role="tabpanel" aria-labelledby="v-pills-tab-meta19">
                     <br>
                     <h2 class="h1-responsive">Gestão Democrática</h2>
-                    <p class="lead">
-                        Assegurar condições, no prazo de 2 (dois) anos, para a efetivação da gestão democrática da educação,
-                        associada a critérios técnicos de mérito e desempenho e à consulta pública à comunidade escolar,
-                        no âmbito das escolas públicas, prevendo recursos e apoio técnico da União para tanto.
-                    </p>
-                    <!-- Collapse buttons -->
-                    <div>
-                        <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta19" aria-expanded="false" aria-controls="collapseMeta19">
-                            Link with href
-                        </a>
-                    </div>
-                    <!-- / Collapse buttons -->
-
-                    <!-- Collapsible element -->
-                    <div class="collapse" id="collapseMeta19">
-                        <div class="mt-3">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            keffiyeh helvetica,
-                            craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Assegurar condições, no prazo de 2 (dois) anos, para a efetivação da gestão democrática
+                                da educação,
+                                associada a critérios técnicos de mérito e desempenho e à consulta pública à comunidade
+                                escolar,
+                                no âmbito das escolas públicas, prevendo recursos e apoio técnico da União para tanto.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <h2 class="h3-responsive">
+                                Esta meta não se encaixa no escopo deste projeto.
+                            </h2>
                         </div>
                     </div>
-                    <!-- / Collapsible element -->
                 </div>
+                <!-- /meta19 -->
 
                 <!-- meta20 -->
                 <div class="tab-pane fade" id="v-pills-meta20" role="tabpanel" aria-labelledby="v-pills-tab-meta20">
                     <br>
                     <h2 class="h1-responsive">Financiamento da Educação</h2>
-                    <p class="lead">
-                        Ampliar o investimento público em educação pública de forma a atingir, no mínimo, o patamar de 7%
-                        (sete por cento) do Produto Interno Bruto - PIB do País no 5º (quinto) ano de vigência desta Lei e,
-                        no mínimo, o equivalente a 10% (dez por cento) do PIB ao final do decênio.
-                    </p>
-
-                    <br>
-                    <h2 class="h3-responsive">
-                        Esta meta não se encaixa no escopo deste projeto.
-                    </h2>
+                    <div class="container">
+                        <div class="row">
+                            <p class="lead">
+                                Ampliar o investimento público em educação pública de forma a atingir, no mínimo, o
+                                patamar de 7%
+                                (sete por cento) do Produto Interno Bruto - PIB do País no 5º (quinto) ano de vigência
+                                desta Lei e,
+                                no mínimo, o equivalente a 10% (dez por cento) do PIB ao final do decênio.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <h2 class="h3-responsive">
+                                Esta meta não se encaixa no escopo deste projeto.
+                            </h2>
+                        </div>
+                    </div>
                 </div>
-
-
+                <!-- /meta20 -->
             </div>
         </div>
+        <!-- /conteúdo para os menus -->
+    </div>
+
+    <div class="row align-content-center">
+        <!-- Button voltar-->
+        <a href="index.html" class="btn btn-orange-meu">Voltar</a>
     </div>
     <!-- /apresentação dos resultados -->
 </div>
-<!-- Apresentacao escola -->
-<!-- Card -->
-<div class="card">
-
-    <!-- Card image -->
-
-    <!-- conteúdo do card -->
-    <div class="card-body align-items-center">
-
-        <!-- Nome da escola -->
-        <h1 class="card-title text-orange mt-5 mb-5 pt-4"><a id="nome_escola2">Escola Tal de Tal</a></h1>
-
-        <!-- dados da escola -->
-        <div class="card-body" id="infos_instituicao2">
-        </div>
-        <!-- Fim daddos escola -->
-
-        <!-- Dados das metas -->
-        <div class="card-body">
-            <!-- carousel -->
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <!-- link meta 1 -->
-                <li class="nav-item">
-                    <a class="nav-link active" id="meta1-tab" data-toggle="pill" href="#meta1" role="tab"
-                       aria-controls="pills-home" aria-selected="true">1</a>
-                </li>
-                <!-- /link meta 1 -->
-                <!-- link meta 2 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta2-tab" data-toggle="pill" href="#meta2" role="tab"
-                       aria-controls="pills-profile" aria-selected="false">2</a>
-                </li>
-                <!-- /link meta 2 -->
-                <!-- link meta 3 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta3-tab" data-toggle="pill" href="#meta3" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">3</a>
-                </li>
-                <!-- link meta 3 -->
-                <!-- link meta 4 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta4-tab" data-toggle="pill" href="#meta4" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">4</a>
-                </li>
-                <!-- link meta 4 -->
-                <!-- link meta 5 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta5-tab" data-toggle="pill" href="#meta5" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">5</a>
-                </li>
-                <!-- link meta 5 -->
-                <!-- link meta 6 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta6-tab" data-toggle="pill" href="#meta6" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">6</a>
-                </li>
-                <!-- link meta 6 -->
-                <!-- link meta 7 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta7-tab" data-toggle="pill" href="#meta7" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">7</a>
-                </li>
-                <!-- link meta 7 -->
-                <!-- link meta 8 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta8-tab" data-toggle="pill" href="#meta8" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">8</a>
-                </li>
-                <!-- link meta 8 -->
-                <!-- link meta 9 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta9-tab" data-toggle="pill" href="#meta9" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">9</a>
-                </li>
-                <!-- link meta 9 -->
-                <!-- link meta 10 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta10-tab" data-toggle="pill" href="#meta10" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">10</a>
-                </li>
-                <!-- link meta 10 -->
-                <!-- link meta 11 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta11-tab" data-toggle="pill" href="#meta11" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">11</a>
-                </li>
-                <!-- link meta 11 -->
-                <!-- link meta 12 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta12-tab" data-toggle="pill" href="#meta12" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">12</a>
-                </li>
-                <!-- link meta 12 -->
-                <!-- link meta 13 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta13-tab" data-toggle="pill" href="#meta13" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">13</a>
-                </li>
-                <!-- link meta 13 -->
-                <!-- link meta 14 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta14-tab" data-toggle="pill" href="#meta14" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">14</a>
-                </li>
-                <!-- link meta 14 -->
-                <!-- link meta 15 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta15-tab" data-toggle="pill" href="#meta15" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">15</a>
-                </li>
-                <!-- link meta 15 -->
-                <!-- link meta 16 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="mta16-tab" data-toggle="pill" href="#meta16" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">16</a>
-                </li>
-                <!-- link meta 16 -->
-                <!-- link meta 17 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta17-tab" data-toggle="pill" href="#meta17" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">17</a>
-                </li>
-                <!-- link meta 17 -->
-                <!-- link meta 18 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta18-tab" data-toggle="pill" href="#meta18" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">18</a>
-                </li>
-                <!-- link meta 18 -->
-                <!-- link meta 19 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta19-tab" data-toggle="pill" href="#meta19" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">19</a>
-                </li>
-                <!-- link meta 19 -->
-                <!-- link meta 20 -->
-                <li class="nav-item">
-                    <a class="nav-link" id="meta20-tab" data-toggle="pill" href="#meta20" role="tab"
-                       aria-controls="pills-contact" aria-selected="false">20</a>
-                </li>
-                <!-- link meta 20 -->
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <!-- conteudo meta 1 -->
-                <div class="tab-pane fade show active" id="meta1" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta1">
-                        <div class="card z-depth-0 bordered">
-                            <div class="card-header-meu" id="headingOne" data-toggle="collapse" data-target="#collapseMeta11"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse"> Meta 1.1</p>
-                            </div>
-                            <div id="collapseMeta11" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta1">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                        <!-- Aqui gráfico da meta 1.1 -->
-                                    </div>
-                                    <!-- Card -->
-
-                                    <p>Gráfico meta 1.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingTwo" data-toggle="collapse"
-                                 data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <p class="card-title-collapse">
-                                    Meta 1.2
-                                </p>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta1">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 1.1 -->
-                                    <p>Gráfico meta 1.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 1 -->
-
-                <!-- conteudo meta 2 -->
-                <div class="tab-pane fade" id="meta2" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta2">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta21" data-toggle="collapse" data-target="#collapseMeta21"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse" >
-                                    Meta 2.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta21" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta2">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 1.1 -->
-                                    <p>Gráfico meta 2.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta22" data-toggle="collapse"
-                                 data-target="#collapseMeta22" aria-expanded="false" aria-controls="collapseMeta22">
-                                <p class="card-title-collapse">
-                                    Meta 2.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta22" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta2">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 2.2 -->
-                                    <p>Gráfico meta 2.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 2 -->
-
-                <!-- conteudo meta 3 -->
-                <div class="tab-pane fade" id="meta3" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta3">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta31" data-toggle="collapse" data-target="#collapseMeta31"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 3.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta31" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta3">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 1.1 -->
-                                    <p>Gráfico meta 3.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta32" data-toggle="collapse"
-                                 data-target="#collapseMeta32" aria-expanded="false" aria-controls="collapseMeta32">
-                                <p class="card-title-collapse">
-                                    Meta 3.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta32" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta3">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 1.1 -->
-                                    <p>Gráfico meta 3.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 3 -->
-
-                <!-- conteudo meta 4 -->
-                <div class="tab-pane fade" id="meta4" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta4">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta41" data-toggle="collapse" data-target="#collapseMeta41"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse" >
-                                    Meta 4.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta41" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta4">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 4.1 -->
-                                    <p>Gráfico meta 4.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta42" data-toggle="collapse" data-target="#collapseMeta42"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse" >
-                                    Meta 4.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta42" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta4">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 4.2 -->
-                                    <p>Gráfico meta 4.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 4 -->
-
-                <!-- conteudo meta 5 -->
-                <div class="tab-pane fade" id="meta5" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta5">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta51" data-toggle="collapse" data-target="#collapseMeta51"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 5.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta51" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta5">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 5.1 -->
-                                    <p>Gráfico meta 5.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta52" data-toggle="collapse"
-                                 data-target="#collapseMeta52" aria-expanded="false" aria-controls="collapseMeta52">
-                                <p class="card-title-collapse">
-                                    Meta 5.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta52" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta5">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 5.2 -->
-                                    <p>Gráfico meta 5.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 5 -->
-
-                <!-- conteudo meta 6 -->
-                <div class="tab-pane fade" id="meta6" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta6">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta61" data-toggle="collapse" data-target="#collapseMeta61"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 6.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta61" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta6">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 6.1 -->
-                                    <p>Gráfico meta 6.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta62" data-toggle="collapse"
-                                 data-target="#collapseMeta62" aria-expanded="false" aria-controls="collapseMeta62">
-                                <p class="card-title-collapse">
-                                    Meta 6.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta62" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta6">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 6.2 -->
-                                    <p>Gráfico meta 6.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 6 -->
-
-                <!-- conteudo meta 7 -->
-                <div class="tab-pane fade" id="meta7" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta7">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta71" data-toggle="collapse" data-target="#collapseMeta71"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 7.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta71" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta7">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 7.1 -->
-                                    <p>Gráfico meta 7.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta72" data-toggle="collapse"
-                                 data-target="#collapseMeta72" aria-expanded="false" aria-controls="collapseMeta72">
-                                <p class="card-title-collapse">
-                                    Meta 7.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta72" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta7">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 7.2 -->
-                                    <p>Gráfico meta 7.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 7 -->
-
-                <!-- conteudo meta 8 -->
-                <div class="tab-pane fade" id="meta8" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta8">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta81" data-toggle="collapse" data-target="#collapseMeta81"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse" >
-                                    Meta 8.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta81" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta8">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 8.1 -->
-                                    <p>Gráfico meta 8.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta82" data-toggle="collapse"
-                                 data-target="#collapseMeta82" aria-expanded="false" aria-controls="collapseMeta82">
-                                <p class="card-title-collapse">
-                                    Meta 8.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta82" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta8">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 8.2 -->
-                                    <p>Gráfico meta 8.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 8 -->
-
-                <!-- conteudo meta 9 -->
-                <div class="tab-pane fade" id="meta9" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta9">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta91" data-toggle="collapse" data-target="#collapseMeta91"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 8.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta91" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta9">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 9.1 -->
-                                    <p>Gráfico meta 9.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta92" data-toggle="collapse"
-                                 data-target="#collapseMeta92" aria-expanded="false" aria-controls="collapseMeta92">
-                                <p class="card-title-collapse">
-                                    Meta 9.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta92" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta9">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 9.2 -->
-                                    <p>Gráfico meta 9.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 9 -->
-
-                <!-- conteudo meta 10 -->
-                <div class="tab-pane fade" id="meta10" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta10">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta101" data-toggle="collapse" data-target="#collapseMeta101"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 10.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta101" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta10">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 10.1 -->
-                                    <p>Gráfico meta 10.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta102" data-toggle="collapse"
-                                 data-target="#collapseMeta102" aria-expanded="false" aria-controls="collapseMeta102">
-                                <p class="card-title-collapse">
-                                    Meta 10.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta102" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta10">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 10.2 -->
-                                    <p>Gráfico meta 10.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 10 -->
-
-                <!-- conteudo meta 11 -->
-                <div class="tab-pane fade" id="meta11" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta11">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta111" data-toggle="collapse" data-target="#collapseMeta111"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 11.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta111" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta11">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 11.1 -->
-                                    <p>Gráfico meta 11.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta112" data-toggle="collapse"
-                                 data-target="#collapseMeta112" aria-expanded="false" aria-controls="collapseMeta112">
-                                <p class="card-title-collapse">
-                                    Meta 10.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta112" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta11">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 11.2 -->
-                                    <p>Gráfico meta 11.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 11 -->
-
-                <!-- conteudo meta 12 -->
-                <div class="tab-pane fade" id="meta12" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta12">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta121" data-toggle="collapse" data-target="#collapseMeta121"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 12.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta121" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta12">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 12.1 -->
-                                    <p>Gráfico meta 12.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta122" data-toggle="collapse"
-                                 data-target="#collapseMeta122" aria-expanded="false" aria-controls="collapseMeta122">
-                                <p class="card-title-collapse">
-                                    Meta 12.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta122" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta12">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 12.2 -->
-                                    <p>Gráfico meta 12.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 12 -->
-
-                <!-- conteudo meta 13 -->
-                <div class="tab-pane fade" id="meta13" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta13">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta131" data-toggle="collapse" data-target="#collapseMeta131"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 13.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta131" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta13">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 13.1 -->
-                                    <p>Gráfico meta 13.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta132" data-toggle="collapse"
-                                 data-target="#collapseMeta132" aria-expanded="false" aria-controls="collapseMeta132">
-                                <p class="card-title-collapse" >
-                                    Meta 12.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta132" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta13">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 13.2 -->
-                                    <p>Gráfico meta 13.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 13 -->
-
-                <!-- conteudo meta 14 -->
-                <div class="tab-pane fade" id="meta14" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta14">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta141" data-toggle="collapse" data-target="#collapseMeta141"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 14.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta141" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta14">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 14.1 -->
-                                    <p>Gráfico meta 14.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta142" data-toggle="collapse"
-                                 data-target="#collapseMeta142" aria-expanded="false" aria-controls="collapseMeta142">
-                                <p class="card-title-collapse">
-                                    Meta 14.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta142" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta14">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 14.2 -->
-                                    <p>Gráfico meta 14.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 14 -->
-
-                <!-- conteudo meta 15 -->
-                <div class="tab-pane fade" id="meta15" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta15">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta151" data-toggle="collapse" data-target="#collapseMeta151"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 15.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta151" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta15">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 15.1 -->
-                                    <p>Gráfico meta 15.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta152" data-toggle="collapse"
-                                 data-target="#collapseMeta152" aria-expanded="false" aria-controls="collapseMeta152">
-                                <p class="card-title-collapse">
-                                    Meta 12.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta152" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta15">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 15.2 -->
-                                    <p>Gráfico meta 15.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 15 -->
-
-                <!-- conteudo meta 16 -->
-                <div class="tab-pane fade" id="meta16" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta16">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta161" data-toggle="collapse" data-target="#collapseMeta161"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 16.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta161" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta16">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 16.1 -->
-                                    <p>Gráfico meta 16.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta162" data-toggle="collapse"
-                                 data-target="#collapseMeta162" aria-expanded="false" aria-controls="collapseMeta162">
-                                <p class="card-title-collapse">
-                                    Meta 16.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta162" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta16">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 16.2 -->
-                                    <p>Gráfico meta 16.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 16 -->
-
-                <!-- conteudo meta 17 -->
-                <div class="tab-pane fade" id="meta17" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta17">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta171" data-toggle="collapse" data-target="#collapseMeta171"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 17.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta171" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta17">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 17.1 -->
-                                    <p>Gráfico meta 17.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta172" data-toggle="collapse"
-                                 data-target="#collapseMeta172" aria-expanded="false" aria-controls="collapseMeta172">
-                                <p class="card-title-collapse">
-                                    Meta 17.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta172" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta17">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 17.2 -->
-                                    <p>Gráfico meta 17.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 17 -->
-
-                <!-- conteudo meta 18 -->
-                <div class="tab-pane fade" id="meta18" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta18">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta181" data-toggle="collapse" data-target="#collapseMeta181"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 18.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta181" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta18">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 18.1 -->
-                                    <p>Gráfico meta 18.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta182" data-toggle="collapse"
-                                 data-target="#collapseMeta182" aria-expanded="false" aria-controls="collapseMeta182">
-                                <p class="card-title-collapse">
-                                    Meta 18.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta182" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta18">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 18.2 -->
-                                    <p>Gráfico meta 18.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 18 -->
-
-                <!-- conteudo meta 19 -->
-                <div class="tab-pane fade" id="meta19" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta19">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta191" data-toggle="collapse" data-target="#collapseMeta191"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 19.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta191" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta19">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 19.1 -->
-                                    <p>Gráfico meta 19.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta192" data-toggle="collapse"
-                                 data-target="#collapseMeta192" aria-expanded="false" aria-controls="collapseMeta192">
-                                <p class="card-title-collapse">
-                                    Meta 19.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta192" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta19">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 19.2 -->
-                                    <p>Gráfico meta 19.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 19 -->
-
-                <!-- conteudo meta 20 -->
-                <div class="tab-pane fade" id="meta20" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <!-- collapse accordion -->
-                    <div class="accordion" id="accordionMeta20">
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta201" data-toggle="collapse" data-target="#collapseMeta201"
-                                 aria-expanded="true" aria-controls="collapseOne">
-                                <p class="card-title-collapse">
-                                    Meta 20.1
-                                </p>
-                            </div>
-                            <div id="collapseMeta201" class="collapse show" aria-labelledby="headingOne"
-                                 data-parent="#accordionMeta20">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Matricular todas as crianças de 4 a 5 anos na Pré-escola. Com relação a sua instituição, matricular todas as crianças de 4 a 5 anos do município na Pré-escola .
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 20.1 -->
-                                    <p>Gráfico meta 20.1</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card z-depth-0">
-                            <div class="card-header-meu" id="headingMeta202" data-toggle="collapse"
-                                 data-target="#collapseMeta202" aria-expanded="false" aria-controls="collapseMeta202">
-                                <p class="card-title-collapse">
-                                    Meta 20.2
-                                </p>
-                            </div>
-                            <div id="collapseMeta202" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMeta20">
-                                <div class="card-body">
-                                    <!-- Card explicação breve meta -->
-                                    <div class="card">
-                                        <!-- Card content -->
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                Atender 50% das crianças menores de 3 anos e 11 meses na creche. Com relação  a sua instituição, atender pelo menos metade das crianças menores de 3 anos e 11 meses do município.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- /Card -->
-                                    <!-- Aqui gráfico da meta 20.2 -->
-                                    <p>Gráfico meta 20.2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /collapse accordion -->
-                </div>
-                <!-- /conteudo meta 20 -->
-            </div>
-            <!-- /carousel -->
-            <!-- /Dados das metas -->
-        </div>
-
-
-        <!-- Button voltar-->
-        <a href="index.html" class="btn btn-orange-meu">Voltar</a>
-
-    </div>
-    <!-- fim conteudo do card-->
-</div>
-<!-- fim do Card -->
 <!-- Fim apresentacao escola -->
-
-
-
-
 
 
 </body>
