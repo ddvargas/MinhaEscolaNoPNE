@@ -1,9 +1,19 @@
 var escolaID;
 var instituicao = new Object();
 
+
+var meta11a = 0;
+var meta11b = 0;
+var meta12a = 0;
+var meta12b = 0;
+var meta21a = 0;
+var meta21b = 0;
+
+
 //setar valores iniciais para a instituição
 instituicao.situacao = "Desconhecida pelo sistema.";
 instituicao.estado = "Desconhecido pelo sistema.";
+instituicao.municipio = 0;
 instituicao.localidade = "Desconhecida pelo sistema.";
 instituicao.nome = "Desconhecido pelo sistema.";
 instituicao.eja = "Desconhecido pelo sistema.";
@@ -51,9 +61,9 @@ function preencherDadosInstituicao(tipo) {
  * @param id identificador único da escola no banco
  */
 function getDadosEscola(id) {
+    getEndereco(id, 1);
     getNome(id, 1);
     getLocalidade(id, 1);
-    getEndereco(id, 1);
     getSituacaoEscola(id);
     getEtapa(id);
 }
@@ -63,13 +73,17 @@ function getDadosEscola(id) {
  * @param id identificador único da escola.
  */
 function getEtapa(id) {
-    var link = "https://biod.c3sl.ufpr.br/api/v1/data?dimensions=dim:turma:etapa:ensino&metrics&filters=dim:escola:censo:ano==2017;dim:escola:id==" + id;fetch(link)
+    var link = "https://biod.c3sl.ufpr.br/api/v1/data?dimensions=dim:turma:etapa:ensino&metrics&filters=dim:escola:" +
+        "censo:ano==2017;dim:escola:id==" + id;
+    fetch(link)
         .then(response => {
             return response.json();
         })
         .then(data => {
             recuperarEtapas(data);
-        });
+        })
+        .then(recuperarMetricas);
+
 }
 
 /**
@@ -78,7 +92,7 @@ function getEtapa(id) {
  */
 function recuperarEtapas(data) {
     instituicao.series = "";
-    for (var i in data){
+    for (var i in data) {
         var etapa = data[i]["dim:turma:etapa:ensino"];
         switch (etapa) {
             case 1: //Educação infantil - creche
@@ -260,18 +274,18 @@ function recuperarEtapas(data) {
     }
 
     console.log("length: " + instituicao.series.length);
-    if (instituicao.series == ""){
+    if (instituicao.series == "") {
         instituicao.series = "Desconhecido pelo sistema.";
-    }else {
-        instituicao.series[instituicao.series.length-3] = ".";
+    } else {
+        instituicao.series[instituicao.series.length - 3] = ".";
     }
-    if (instituicao.projovem == "Desconhecido pelo sistema."){
+    if (instituicao.projovem == "Desconhecido pelo sistema.") {
         instituicao.projovem = "Não.";
     }
-    if (instituicao.eja == "Desconhecido pelo sistema."){
+    if (instituicao.eja == "Desconhecido pelo sistema.") {
         instituicao.eja = "Não.";
     }
-    if (instituicao.educProf == "Desconhecido pelo sistema."){
+    if (instituicao.educProf == "Desconhecido pelo sistema.") {
         instituicao.educProf = "Não.";
     }
 
@@ -355,7 +369,7 @@ function getEndereco(id, tipo) {
     switch (tipo) {
         case 1:
             //escola
-            var link = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:estado:nome,dim:cidade:nome&filters=dim:escola:id==" + id;
+            var link = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:estado:nome,dim:cidade:nome,dim:cidade:id&filters=dim:escola:id==" + id;
             fetch(link)
                 .then(response => {
                     return response.json();
@@ -373,7 +387,8 @@ function getEndereco(id, tipo) {
  * @param data dados retornados
  */
 function recuperarEndereco(data) {
-    instituicao.estado = formatarCidade(data[0]["dim:cidade:nome"])  + " - " + data[0]["dim:estado:nome"];
+    instituicao.estado = formatarCidade(data[0]["dim:cidade:nome"]) + " - " + data[0]["dim:estado:nome"];
+    instituicao.municipio = data[0]["dim:cidade:id"];
     var elementoLocalizacao = document.createElement('p');
     var container = document.getElementById("infos_instituicao");
     elementoLocalizacao.setAttribute("class", "card-text");
@@ -396,7 +411,7 @@ function getWords(frase) {
  * @returns {*|boolean|Promise<Response|undefined>|RegExpMatchArray}
  */
 function formatarCidade(cidade) {
-    if (cidade){
+    if (cidade) {
         var wordsToIgnore = ["das", "dos", "da", "do", "de", "dalla"];
         var minLenght = 3;
         var cidadeNova = "";
@@ -404,8 +419,8 @@ function formatarCidade(cidade) {
         cidade = cidade.toLowerCase();
         cidade = cidade.replace(/\t/g, ' ');
         cidade = getWords(cidade);
-        for (var i in cidade){
-            if (wordsToIgnore.indexOf(cidade[i]) == -1 && cidade[i].length > minLenght){
+        for (var i in cidade) {
+            if (wordsToIgnore.indexOf(cidade[i]) == -1 && cidade[i].length > minLenght) {
                 cidade[i] = cidade[i].charAt(0).toUpperCase() + cidade[i].slice(1);
             }
             cidadeNova += cidade[i] + " ";
@@ -432,6 +447,13 @@ function getLocalidade(id, tipo) {
                 .then(data => {
                     recuperarLocalidade(data, tipo);
                 });
+            var xmlResquest = new XMLHttpRequest();
+            xmlResquest.open("GET", link, false);
+            xmlResquest.send(null);
+            if (xmlResquest.readyState === 4) {
+                console.log("Requisição XML retornou:");
+                console.log(xmlResquest.responseXML);
+            }
             break;
         case 2:
         //ies
@@ -542,19 +564,228 @@ function getParameters(parametro) {
     }
 }
 
-//pie demonstração
-var ctxP = document.getElementById("pieChart").getContext('2d');
-var myPieChart = new Chart(ctxP, {
-    type: 'pie',
-    data: {
-        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
-        datasets: [{
-            data: [300, 50, 100, 40, 120],
-            backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-            hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
-        }]
-    },
-    options: {
-        responsive: true
-    }
-});
+
+function recuperarMetricas() {
+    var linkMeta11a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
+        "filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:escola:id==" + escolaID;
+    var linkMeta11b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/6562";
+    var linkMeta12a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
+        "filters=dim:matricula:idade==0,dim:matricula:idade==1,dim:matricula:idade==2,dim:matricula:idade==3;" +
+        "dim:escola:id==" + escolaID;
+    var linkMeta12b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/93070";
+    var linkMeta21a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:" +
+        "idade>6;dim:matricula:idade<14;dim:escola:id==" + escolaID;
+    var linkMeta21b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/93085";
+    var linkMeta31a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&" +
+        "filters=dim:matricula:idade==15,dim:matricula:idade==16,dim:matricula:idade==17;dim:escola:id==" + escolaID +
+        ";dim:matricula:censo:ano==2017;dim:turma:etapa:ensino==25,dim:turma:etapa:ensino==26," +
+        "dim:turma:etapa:ensino==27,dim:turma:etapa:ensino==28";
+    var linkMeta31b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/107453";
+    //TODO: Adicionar links para a meta 3.2 A e B
+    var linkMeta41a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&filters=dim:matricula:" +
+        "surdo:cegueira==1,dim:matricula:surdez==1,dim:matricula:superdotado==1,dim:matricula:sindrome:rett==1," +
+        "dim:matricula:sindrome:asperger==1,dim:matricula:deficiencia:multipla==1,dim:matricula:deficiencia:fisica==1," +
+        "dim:matricula:deficiencia:intelectual==1,dim:matricula:deficiencia:auditiva==1;dim:matricula:censo:ano==2017;" +
+        "dim:matricula:idade>4;dim:matricula:idade<16;dim:escola:id==" + escolaID;
+    var linkMeta41b = "http://api.sidra.ibge.gov.br/values/t/3434/n6/" + instituicao.municipio +
+        "/v/93/c134/7815/c58/1141,1142/C12081/0";
+    //TODO: Adicionar links para a meta 4.2 A e B;
+    //TODO: Adicionar links para a meta 5.1 A
+    var linkMeta51LeituraB = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&" +
+        "filters=dim:escola:id==" + escolaID + ";dim:matricula:etapa:ensino==6,dim:matricula:etapa:ensino==16;" +
+        "dim:matricula:censo:ano==2017";
+    //TODO: Adicionar links para a meta 5.2 A
+    var linkMeta52EscritaB = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&" +
+        "filters=dim:escola:id==" + escolaID + ";dim:matricula:etapa:ensino==6,dim:matricula:etapa:ensino==16;" +
+        "dim:matricula:censo:ano==2017";
+    //TODO: Adicionar links para a meta 5.3 A
+    var linkMeta53MatematicaB = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&" +
+        "filters=dim:escola:id==" + escolaID + ";dim:matricula:etapa:ensino==6,dim:matricula:etapa:ensino==16;" +
+        "dim:matricula:censo:ano==2017";
+
+
+
+    /*
+        Fluxo para recuperar as metricas:
+
+        definir variável e formar o link de consulta
+        fazer o fetch
+        .then(transformar para json)
+        .then(coletar os dados e por numa variável)
+        .then (fazer os cálculos)
+
+        nos calculos fazer o cálculo
+        chamar a função que monta o gráfico
+     */
+
+
+
+    //Iniciar consultas, tratamento dos dados e criação dos gráficos
+    // meta 1.1
+    fetch(linkMeta11a)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta11a(data);
+        });
+    fetch(linkMeta11b)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta11b(data);
+        })
+        .then(calcularDadosMeta11());
+    //meta 1.2
+    fetch(linkMeta12a)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta12a(data);
+        });
+    fetch(linkMeta12b)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta12b(data);
+        })
+        .then(criarGraficoMeta12);
+    //meta21
+    fetch(linkMeta21a)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta21a(data);
+        });
+    fetch(linkMeta21b)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta21b(data);
+        })
+        .then();
+
+}
+
+// RECUPERAR DADOS E TRATÁ-LOS
+// meta 1.1
+/**
+ * Trata os dados retornado da consulta para a meta 1.1 a colocando nas variáveis corretas
+ * @param data dados retornados da consulta
+ */
+function recuperarDadosMeta11a(data) {
+    meta11a = data.length;
+    console.log("Meta11a: " + meta11a);
+}
+
+/**
+ * Trata os dados retornado da consulta para a meta 1.1 b colocando nas variáveis corretas
+ * @param data dados retornados da consulta
+ */
+function recuperarDadosMeta11b(data) {
+    meta11b = data[1]["V"];
+    console.log("Meta11b: " + meta11b);
+}
+
+function calcularDadosMeta11() {
+    var dadosEscola;
+    do {
+        do {
+            console.log(Number.isNaN(meta11a));
+            console.log(Number.isNaN(meta11b));
+            dadosEscola = (meta11a / meta11b) * 100;
+            console.log(Number.isNaN(dadosEscola));
+        } while (meta11b == undefined);
+    } while (meta11a == undefined);
+    criarGraficoMeta11(dadosEscola);
+}
+
+// /meta 1.1
+
+// meta 1.2
+/**
+ * Trata os dados retornado da consulta para a meta 1.2 a colocando nas variáveis corretas
+ * @param data dados retornados da consulta
+ */
+function recuperarDadosMeta12a(data) {
+    meta12a = data.length;
+}
+
+/**
+ * Trata os dados retornado da consulta para a meta 1.2 b colocando nas variáveis corretas
+ * @param data dados retornados
+ */
+function recuperarDadosMeta12b(data) {
+    meta12b = data[1]["V"];
+}
+
+// /meta 1.2
+
+// meta 2.1
+/**
+ * Trata os dados retornado da consulta para a meta 2.1 a colocando nas variáveis corretas
+ * @param data dados retornados
+ */
+function recuperarDadosMeta21a(data) {
+    meta21a = data.length;
+}
+
+/**
+ * Trata os dados retornado da consulta para a meta 2.1 b colocando nas variáveis corretas
+ * @param data dados retornados
+ */
+function recuperarDadosMeta21b(data) {
+    meta21b = data[1]["V"];
+}
+
+// /meta 2.1
+
+
+//CRIAR GRAFICOS DAS METAS
+//pie Meta 1.1
+
+function criarGraficoMeta11(dadoEscola) {
+    var ctxP = document.getElementById("pieChartMeta11").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+            labels: ["Escola", "Município"],
+            datasets: [{
+                data: [dadoEscola, 100],
+                backgroundColor: ["#F7464A", "#46BFBD"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
+
+//fim pie meta 1.1
+
+//pie meta 1.2
+function criarGraficoMeta12() {
+    var ctxP = document.getElementById("pieChartMeta12").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+            labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+            datasets: [{
+                data: [300, 50, 100, 40, 120],
+                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
+
+// fim pie meta 1.2

@@ -7,7 +7,9 @@ window.onload = function () {
     if (self.fetch) {
         // execute minha solicitação do fetch
         console.log("Iniciando busca de estados");
-        estados = fetch("https://biod.c3sl.ufpr.br/api/v1/data?dimensions=dim:estado:nome&metrics")
+        estados = fetch("https://biod.c3sl.ufpr.br/api/v1/data?dimensions=dim:estado:nome&metrics", {
+            method: 'GET',
+        })
             .then(response => {
                 return response.json();
             })
