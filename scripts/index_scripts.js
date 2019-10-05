@@ -7,9 +7,7 @@ window.onload = function () {
     if (self.fetch) {
         // execute minha solicitação do fetch
         console.log("Iniciando busca de estados");
-        estados = fetch("https://biod.c3sl.ufpr.br/api/v1/data?dimensions=dim:estado:nome&metrics", {
-            method: 'GET',
-        })
+        fetch("https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:estado:nome")
             .then(response => {
                 return response.json();
             })
@@ -73,6 +71,7 @@ function itemEstadoMudado() {
  */
 function recuperarDados(retornados) {
     escolas = retornados;
+    limparArray(escolasNomesApenas);
     for (var i in retornados) {
         var nome = formatarInstituicao(retornados[i]["dim:escola:nome"]);
         var cidadeNome = formatarCidade(retornados[i]["dim:cidade:nome"]);
@@ -80,6 +79,16 @@ function recuperarDados(retornados) {
     }
     console.log(escolas);
     console.log(escolasNomesApenas);
+}
+
+/**
+ * Remove todos os elementos do array.
+ * @param array lista a ser limpa
+ */
+function limparArray(array) {
+    while(array.length > 0) {
+        array.pop();
+    }
 }
 
 /**
