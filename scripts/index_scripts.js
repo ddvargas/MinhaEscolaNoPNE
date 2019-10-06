@@ -210,7 +210,7 @@ var options = {
     data: escolasNomesApenas,
     list: {
         // numero máximo de elementos que deve aparecer na lista de opçãos
-        maxNumberOfElements: 8,
+        maxNumberOfElements: 12,
         //?
         match: {
             enabled: true
