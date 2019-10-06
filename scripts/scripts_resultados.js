@@ -628,7 +628,9 @@ function recuperarMetricas() {
         })
         .then(data => {
             recuperarDadosMeta11a(data);
-        });
+        })
+        .then(data => {calcularDadosMeta11()});
+
     fetch(linkMeta11b)
         .then(response => {
             return response.json();
@@ -636,7 +638,8 @@ function recuperarMetricas() {
         .then(data => {
             recuperarDadosMeta11b(data);
         })
-        .then(calcularDadosMeta11());
+        .then(data => {calcularDadosMeta11()});
+
     //meta 1.2
     fetch(linkMeta12a)
         .then(response => {
@@ -644,7 +647,8 @@ function recuperarMetricas() {
         })
         .then(data => {
             recuperarDadosMeta12a(data);
-        });
+        })
+        .then(data => {calcularDadosMeta12()});
     fetch(linkMeta12b)
         .then(response => {
             return response.json();
@@ -652,7 +656,7 @@ function recuperarMetricas() {
         .then(data => {
             recuperarDadosMeta12b(data);
         })
-        .then(criarGraficoMeta12);
+        .then(data => {calcularDadosMeta12()});
     //meta21
     fetch(linkMeta21a)
         .then(response => {
@@ -696,13 +700,14 @@ function calcularDadosMeta11() {
     var dadosEscola;
     do {
         do {
-            console.log(Number.isNaN(meta11a));
-            console.log(Number.isNaN(meta11b));
+            //console.log(Number.isNaN(meta11a));
+            //console.log(Number.isNaN(meta11b));
             dadosEscola = (meta11a / meta11b) * 100;
-            console.log(Number.isNaN(dadosEscola));
+            //console.log(Number.isNaN(dadosEscola));
+            console.log("result11: " + dadosEscola);
         } while (meta11b == undefined);
     } while (meta11a == undefined);
-    criarGraficoMeta11(dadosEscola);
+    criarGraficoMeta11(dadosEscola.toFixed(2));
 }
 
 // /meta 1.1
@@ -714,6 +719,7 @@ function calcularDadosMeta11() {
  */
 function recuperarDadosMeta12a(data) {
     meta12a = data.length;
+    console.log("Meta12a: " + meta12a)
 }
 
 /**
@@ -722,7 +728,21 @@ function recuperarDadosMeta12a(data) {
  */
 function recuperarDadosMeta12b(data) {
     meta12b = data[1]["V"];
+    console.log("Meta11a: " + meta12b)
 }
+
+function calcularDadosMeta12() {
+    var dadosEscola;
+    do {
+        do {
+            dadosEscola = (meta12a / meta12b) * 100;
+            //console.log(Number.isNaN(dadosEscola));
+            console.log("result12: " + dadosEscola);
+        } while (meta12b == undefined);
+    } while (meta12a == undefined);
+    criarGraficoMeta12(dadosEscola.toFixed(2));
+}
+
 
 // /meta 1.2
 
@@ -756,7 +776,7 @@ function criarGraficoMeta11(dadoEscola) {
         data: {
             labels: ["Escola", "Município"],
             datasets: [{
-                data: [dadoEscola, 100],
+                data: [dadoEscola, (100 - dadoEscola)],
                 backgroundColor: ["#F7464A", "#46BFBD"],
                 hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
             }]
@@ -770,16 +790,16 @@ function criarGraficoMeta11(dadoEscola) {
 //fim pie meta 1.1
 
 //pie meta 1.2
-function criarGraficoMeta12() {
+function criarGraficoMeta12(dadoEscola) {
     var ctxP = document.getElementById("pieChartMeta12").getContext('2d');
     var myPieChart = new Chart(ctxP, {
         type: 'pie',
         data: {
-            labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+            labels: ["Escola", "Município"],
             datasets: [{
-                data: [300, 50, 100, 40, 120],
-                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                data: [dadoEscola, (100 - dadoEscola)],
+                backgroundColor: ["#F7464A", "#46BFBD"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
             }]
         },
         options: {
