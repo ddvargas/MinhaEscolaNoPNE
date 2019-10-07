@@ -8,6 +8,8 @@ var meta12a = 0;
 var meta12b = 0;
 var meta21a = 0;
 var meta21b = 0;
+var meta21c = 0;
+var meta21d = 0;
 
 
 //setar valores iniciais para a instituição
@@ -575,7 +577,9 @@ function recuperarMetricas() {
     var linkMeta12b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/93070";
     var linkMeta21a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:" +
         "idade>6;dim:matricula:idade<14;dim:escola:id==" + escolaID;
-    var linkMeta21b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/93085";
+    var linkMeta21b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/93085"; // 10 a 14 anos
+    var linkMeta21c = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/93084"; // 5 a 9 anos
+    var linkMeta21d = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/6562"; // 5 anos
     var linkMeta31a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&" +
         "filters=dim:matricula:idade==15,dim:matricula:idade==16,dim:matricula:idade==17;dim:escola:id==" + escolaID +
         ";dim:matricula:censo:ano==2017;dim:turma:etapa:ensino==25,dim:turma:etapa:ensino==26," +
@@ -664,7 +668,8 @@ function recuperarMetricas() {
         })
         .then(data => {
             recuperarDadosMeta21a(data);
-        });
+        })
+        .then(data => {calcularDadosMeta21()});
     fetch(linkMeta21b)
         .then(response => {
             return response.json();
@@ -672,7 +677,23 @@ function recuperarMetricas() {
         .then(data => {
             recuperarDadosMeta21b(data);
         })
-        .then();
+        .then(data => {calcularDadosMeta21()});
+    fetch(linkMeta21c)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta21c(data);
+        })
+        .then(data => {calcularDadosMeta21()});
+    fetch(linkMeta21d)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            recuperarDadosMeta21d(data);
+        })
+        .then(data => {calcularDadosMeta21()});
 
 }
 
@@ -719,7 +740,7 @@ function calcularDadosMeta11() {
  */
 function recuperarDadosMeta12a(data) {
     meta12a = data.length;
-    console.log("Meta12a: " + meta12a)
+    console.log("Meta12a: " + meta12a);
 }
 
 /**
@@ -728,7 +749,7 @@ function recuperarDadosMeta12a(data) {
  */
 function recuperarDadosMeta12b(data) {
     meta12b = data[1]["V"];
-    console.log("Meta11a: " + meta12b)
+    console.log("Meta12b: " + meta12b);
 }
 
 function calcularDadosMeta12() {
@@ -753,6 +774,7 @@ function calcularDadosMeta12() {
  */
 function recuperarDadosMeta21a(data) {
     meta21a = data.length;
+    console.log("Meta21a: " + meta21a);
 }
 
 /**
@@ -761,7 +783,36 @@ function recuperarDadosMeta21a(data) {
  */
 function recuperarDadosMeta21b(data) {
     meta21b = data[1]["V"];
+    console.log("Meta21b: " + meta21b);
 }
+
+function recuperarDadosMeta21c(data) {
+    meta21c = data[1]["V"];
+    console.log("Meta21c: " + meta21c);
+}
+
+function recuperarDadosMeta21d(data) {
+    meta21d = data[1]["V"];
+    console.log("Meta21d: " + meta21d);
+}
+
+function calcularDadosMeta21() {
+    var dadosEscola;
+    do {
+        do {
+            do {
+                do {
+                    dadosEscola = (meta21a / ((meta21b + meta21c) - meta21d ) ) * 100;
+                    //console.log(Number.isNaN(dadosEscola));
+                    console.log("result21: " + dadosEscola);
+                } while (meta21d == undefined);
+            } while (meta21c == undefined);
+        } while (meta21b == undefined);
+    } while (meta21a == undefined);
+    criarGraficoMeta21(dadosEscola.toFixed(2));
+    criarGraficoMeta22();
+}
+
 
 // /meta 2.1
 
@@ -809,3 +860,45 @@ function criarGraficoMeta12(dadoEscola) {
 }
 
 // fim pie meta 1.2
+
+//pie meta 2.1
+function criarGraficoMeta21(dadoEscola) {
+    var ctxP = document.getElementById("pieChartMeta21").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+            labels: ["Escola", "Município"],
+            datasets: [{
+                data: [dadoEscola, (100 - dadoEscola)],
+                backgroundColor: ["#F7464A", "#46BFBD"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
+
+// fim pie meta 2.1
+
+//pie meta 2.2
+function criarGraficoMeta22() {
+    var ctxP = document.getElementById("pieChartMeta22").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+            labels: ["Escola", "Município"],
+            datasets: [{
+                data: [50, 50],
+                backgroundColor: ["#F7464A", "#46BFBD"],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
+
+// fim pie meta 2.2
