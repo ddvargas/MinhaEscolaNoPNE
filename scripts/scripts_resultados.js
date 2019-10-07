@@ -843,20 +843,40 @@ function criarGraficoMeta11(dadoEscola) {
 //pie meta 1.2
 function criarGraficoMeta12(dadoEscola) {
     var ctxP = document.getElementById("pieChartMeta12").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
-        type: 'pie',
-        data: {
-            labels: ["Escola", "Município"],
-            datasets: [{
-                data: [dadoEscola, (100 - dadoEscola)],
-                backgroundColor: ["#F7464A", "#46BFBD"],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
+
+    if(dadoEscola==0) {
+        var myPieChart = new Chart(ctxP, {
+            type: 'pie',
+            data: {
+                labels: ["Não se aplica a esta escola"],
+                datasets: [{
+                    data: [0],
+                    backgroundColor: ["#F7464A"],
+                    hoverBackgroundColor: ["#FF5A5E"]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    } else {
+        var myPieChart = new Chart(ctxP, {
+            type: 'pie',
+            data: {
+                labels: ["Escola", "Município"],
+                datasets: [{
+                    data: [dadoEscola, (100 - dadoEscola)],
+                    backgroundColor: ["#F7464A", "#46BFBD"],
+                    hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    }
+
+
 }
 
 // fim pie meta 1.2
