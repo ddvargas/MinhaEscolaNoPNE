@@ -4,6 +4,7 @@ var instituicao = new Object();
 
 var meta11a = 0;
 var meta11b = 0;
+var meta11c = 0;
 var meta12a = 0;
 var meta12b = 0;
 var meta21a = 0;
@@ -570,7 +571,8 @@ function getParameters(parametro) {
 function recuperarMetricas() {
     var linkMeta11a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
         "filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:escola:id==" + escolaID;
-    var linkMeta11b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/6562";
+    var linkMeta11b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/6562"; // 5 anos
+    var linkMeta11c = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/6561"; // 4 anos
     var linkMeta12a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
         "filters=dim:matricula:idade==0,dim:matricula:idade==1,dim:matricula:idade==2,dim:matricula:idade==3;" +
         "dim:escola:id==" + escolaID;
@@ -613,87 +615,82 @@ function recuperarMetricas() {
         Fluxo para recuperar as metricas:
 
         definir variável e formar o link de consulta
-        fazer o fetch
-        .then(transformar para json)
-        .then(coletar os dados e por numa variável)
-        .then (fazer os cálculos)
+        HttpRequest
+        converter para json
+        recuperar dados em uma variável
+        fazer os cálculos
 
-        nos calculos fazer o cálculo
-        chamar a função que monta o gráfico
+        nos calculos chamar a função que monta o gráfico
      */
 
+    // objeto HttpRequest
+    var xmlRequest = new XMLHttpRequest();
 
 
     //Iniciar consultas, tratamento dos dados e criação dos gráficos
-    // meta 1.1
-    fetch(linkMeta11a)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta11a(data);
-        })
-        .then(data => {calcularDadosMeta11()});
 
-    fetch(linkMeta11b)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta11b(data);
-        })
-        .then(data => {calcularDadosMeta11()});
+    // meta 11
+    xmlRequest.open("GET", linkMeta11a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta11a(JSON.parse(xmlRequest.response));
+    }
 
-    //meta 1.2
-    fetch(linkMeta12a)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta12a(data);
-        })
-        .then(data => {calcularDadosMeta12()});
-    fetch(linkMeta12b)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta12b(data);
-        })
-        .then(data => {calcularDadosMeta12()});
-    //meta21
-    fetch(linkMeta21a)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta21a(data);
-        })
-        .then(data => {calcularDadosMeta21()});
-    fetch(linkMeta21b)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta21b(data);
-        })
-        .then(data => {calcularDadosMeta21()});
-    fetch(linkMeta21c)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta21c(data);
-        })
-        .then(data => {calcularDadosMeta21()});
-    fetch(linkMeta21d)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            recuperarDadosMeta21d(data);
-        })
-        .then(data => {calcularDadosMeta21()});
+    xmlRequest.open("GET", linkMeta11b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta11b(JSON.parse(xmlRequest.response));
+    }
+
+    xmlRequest.open("GET", linkMeta11c, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta11c(JSON.parse(xmlRequest.response));
+    }
+    calcularDadosMeta11();
+    // /meta11
+
+    // meta 12
+    xmlRequest.open("GET", linkMeta12a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta12a(JSON.parse(xmlRequest.response));
+    }
+
+    xmlRequest.open("GET", linkMeta12b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta12b(JSON.parse(xmlRequest.response));
+    }
+    calcularDadosMeta12();
+    // /meta12
+
+    // meta 21
+    xmlRequest.open("GET", linkMeta21a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta21a(JSON.parse(xmlRequest.response));
+    }
+
+    xmlRequest.open("GET", linkMeta21b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta21b(JSON.parse(xmlRequest.response));
+    }
+
+    xmlRequest.open("GET", linkMeta21c, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta21c(JSON.parse(xmlRequest.response));
+    }
+
+    xmlRequest.open("GET", linkMeta21d, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        recuperarDadosMeta21d(JSON.parse(xmlRequest.response));
+    }
+    calcularDadosMeta21();
+    // /meta21
 
 }
 
@@ -708,29 +705,22 @@ function recuperarDadosMeta11a(data) {
     console.log("Meta11a: " + meta11a);
 }
 
-/**
- * Trata os dados retornado da consulta para a meta 1.1 b colocando nas variáveis corretas
- * @param data dados retornados da consulta
- */
 function recuperarDadosMeta11b(data) {
-    meta11b = data[1]["V"];
+    meta11b = parseInt(data[1]["V"]);
     console.log("Meta11b: " + meta11b);
+}
+
+function recuperarDadosMeta11c(data) {
+    meta11c = parseInt(data[1]["V"]);
+    console.log("Meta11c: " + meta11c);
 }
 
 function calcularDadosMeta11() {
     var dadosEscola;
-    do {
-        do {
-            //console.log(Number.isNaN(meta11a));
-            //console.log(Number.isNaN(meta11b));
-            dadosEscola = (meta11a / meta11b) * 100;
-            //console.log(Number.isNaN(dadosEscola));
-            console.log("result11: " + dadosEscola);
-        } while (meta11b == undefined);
-    } while (meta11a == undefined);
-    criarGraficoMeta11(dadosEscola.toFixed(2));
+    dadosEscola = (meta11a/(meta11b+meta11c))*100;
+    console.log("result11: " + dadosEscola);
+    criarGrafico(dadosEscola.toFixed(2), "pieChartMeta11");
 }
-
 // /meta 1.1
 
 // meta 1.2
@@ -743,28 +733,17 @@ function recuperarDadosMeta12a(data) {
     console.log("Meta12a: " + meta12a);
 }
 
-/**
- * Trata os dados retornado da consulta para a meta 1.2 b colocando nas variáveis corretas
- * @param data dados retornados
- */
 function recuperarDadosMeta12b(data) {
-    meta12b = data[1]["V"];
+    meta12b = parseInt(data[1]["V"]);
     console.log("Meta12b: " + meta12b);
 }
 
 function calcularDadosMeta12() {
     var dadosEscola;
-    do {
-        do {
-            dadosEscola = (meta12a / meta12b) * 100;
-            //console.log(Number.isNaN(dadosEscola));
-            console.log("result12: " + dadosEscola);
-        } while (meta12b == undefined);
-    } while (meta12a == undefined);
-    criarGraficoMeta12(dadosEscola.toFixed(2));
+    dadosEscola = (meta12a / meta12b) * 100;
+    console.log("result12: " + dadosEscola);
+    criarGrafico(dadosEscola.toFixed(2), "pieChartMeta12");
 }
-
-
 // /meta 1.2
 
 // meta 2.1
@@ -777,74 +756,36 @@ function recuperarDadosMeta21a(data) {
     console.log("Meta21a: " + meta21a);
 }
 
-/**
- * Trata os dados retornado da consulta para a meta 2.1 b colocando nas variáveis corretas
- * @param data dados retornados
- */
 function recuperarDadosMeta21b(data) {
-    meta21b = data[1]["V"];
+    meta21b = parseInt(data[1]["V"]);
     console.log("Meta21b: " + meta21b);
 }
 
 function recuperarDadosMeta21c(data) {
-    meta21c = data[1]["V"];
+    meta21c = parseInt(data[1]["V"]);
     console.log("Meta21c: " + meta21c);
 }
 
 function recuperarDadosMeta21d(data) {
-    meta21d = data[1]["V"];
+    meta21d = parseInt(data[1]["V"]);
     console.log("Meta21d: " + meta21d);
 }
 
 function calcularDadosMeta21() {
     var dadosEscola;
-    do {
-        do {
-            do {
-                do {
-                    dadosEscola = (meta21a / ((meta21b + meta21c) - meta21d ) ) * 100;
-                    //console.log(Number.isNaN(dadosEscola));
-                    console.log("result21: " + dadosEscola);
-                } while (meta21d == undefined);
-            } while (meta21c == undefined);
-        } while (meta21b == undefined);
-    } while (meta21a == undefined);
-    criarGraficoMeta21(dadosEscola.toFixed(2));
-    criarGraficoMeta22();
+    dadosEscola = (meta21a / ((meta21b + meta21c) - meta21d ) ) * 100;
+    console.log("result21: " + dadosEscola);
+    criarGrafico(dadosEscola.toFixed(2), "pieChartMeta21");
 }
-
-
 // /meta 2.1
 
+// CRIAR GRAFICOS PIZZA ÚNICA
 
-//CRIAR GRAFICOS DAS METAS
-//pie Meta 1.1
+function criarGrafico(dadoEscola, elementID) {
+    var ctxP = document.getElementById(elementID).getContext('2d');
 
-function criarGraficoMeta11(dadoEscola) {
-    var ctxP = document.getElementById("pieChartMeta11").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
-        type: 'pie',
-        data: {
-            labels: ["Escola", "Município"],
-            datasets: [{
-                data: [dadoEscola, (100 - dadoEscola)],
-                backgroundColor: ["#F7464A", "#46BFBD"],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-}
-
-//fim pie meta 1.1
-
-//pie meta 1.2
-function criarGraficoMeta12(dadoEscola) {
-    var ctxP = document.getElementById("pieChartMeta12").getContext('2d');
-
-    if(dadoEscola==0) {
+    // gráfico para o caso de não se aplicar a meta (fica somente a legenda com o texto)
+    if(dadoEscola==0.0) {
         var myPieChart = new Chart(ctxP, {
             type: 'pie',
             data: {
@@ -856,7 +797,7 @@ function criarGraficoMeta12(dadoEscola) {
                 }]
             },
             options: {
-                responsive: true
+                responsive: false
             }
         });
     } else {
@@ -871,54 +812,11 @@ function criarGraficoMeta12(dadoEscola) {
                 }]
             },
             options: {
-                responsive: true
+                responsive: false
             }
         });
     }
-
-
 }
+// /CRIAR GRAFICOS PIZZA ÚNICA
 
-// fim pie meta 1.2
 
-//pie meta 2.1
-function criarGraficoMeta21(dadoEscola) {
-    var ctxP = document.getElementById("pieChartMeta21").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
-        type: 'pie',
-        data: {
-            labels: ["Escola", "Município"],
-            datasets: [{
-                data: [dadoEscola, (100 - dadoEscola)],
-                backgroundColor: ["#F7464A", "#46BFBD"],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-}
-
-// fim pie meta 2.1
-
-//pie meta 2.2
-function criarGraficoMeta22() {
-    var ctxP = document.getElementById("pieChartMeta22").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
-        type: 'pie',
-        data: {
-            labels: ["Escola", "Município"],
-            datasets: [{
-                data: [50, 50],
-                backgroundColor: ["#F7464A", "#46BFBD"],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-}
-
-// fim pie meta 2.2
