@@ -151,7 +151,7 @@
                 <!-- Collapsible element -->
                 <div class="collapse" id="collapseMeta01a">
                     <div class="mt-3">
-                        <br>Métrica 1
+                        <br><strong>Métrica 1</strong>
                         <br>Relação entre alunos de 4 a 5 anos da escola em questão(a) e o total de crianças de 4 a 5 anos no município (b).
                         <br>Forma de cálculo: (a/b) * 100
                         <br>Porcentagem que a escola contribui a meta 1 dentro de seu município.
@@ -170,7 +170,7 @@
                 </div>
                 <div class="collapse" id="collapseMeta01b">
                     <div class="mt-3">
-                        <br>Métrica 2
+                        <br><strong>Métrica 2</strong>
                         <br>Relação de crianças até 3 anos na escola em questão(a) e o total de crianças até 3 anos no município (b).
                         <br>Forma de cálculo: (a/b) * 100
                         <br>Porcentagem que a escola contribui a meta 1 dentro de seu município.
@@ -188,8 +188,8 @@
                     </div>
                 </div>
                 <!-- / Collapsible element -->
-
             </div>
+            <!-- /meta01 -->
 
             <!-- meta02 -->
             <div class="tab-pane fade" id="v-pills-meta02" role="tabpanel" aria-labelledby="v-pills-tab-meta02">
@@ -215,10 +215,10 @@
                 <!-- Collapsible element -->
                 <div class="collapse" id="collapseMeta02a">
                     <div class="mt-3">
-                        <br>Métrica 1
+                        <br><strong>Métrica 01</strong>
                         <br>Relação entre alunos de 6 a 14 anos da escola em questão(a) e o total de crianças de 6 a 14 anos no município (b).
                         <br>Forma de cálculo: (a/b) * 100
-                        <br>Porcentagem que a escola contribui a meta 1 dentro de seu município.
+                        <br>Porcentagem que a escola contribui para a meta 2 dentro de seu município.
                         <br>
                         <br>Fontes de dados:
                         <br>Consulta o total de crianças de 6 a 14 anos matriculadas em uma escola (a) com o id informado ao final da linha
@@ -235,11 +235,29 @@
                 </div>
                 <div class="collapse" id="collapseMeta02b">
                     <div class="mt-3">
-                        <br>Em construção
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção de alunos de até 16 anos que concluíram o EF (a) e o total de crianças de até 16 anos no EF (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 2 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br> Em construção
+                        <!--
+                        <br>Consulta o total de crianças de 6 a 14 anos matriculadas em uma escola (a) com o id informado ao final da linha
+                        <br><a href="https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}"
+                               target="_blank">https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}</a>
+                        <br>Consultas para obter o total de crianças entre 6 e 14 anos de um município (substituir {id_município} pelo id)
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_município}/v/93//C287/93085"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/4316907/v/93//C287/6561 retorna população de 10 a 14 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084 retorna população de 5 a 9 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562 retorna população de 5 anos</a> -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta02 -->
 
             <!-- meta03 -->
             <div class="tab-pane fade" id="v-pills-meta03" role="tabpanel" aria-labelledby="v-pills-tab-meta03">
@@ -252,20 +270,63 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta03" aria-expanded="false" aria-controls="collapseMeta03">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta03a" aria-expanded="false" aria-controls="collapseMeta03">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta03b" aria-expanded="false" aria-controls="collapseMeta03">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta03">
+                <div class="collapse" id="collapseMeta03a">
                     <div class="mt-3">
-                        Em construção
+                        <br>Métrica 01
+                        <br>Relação de proporção de alunos de 15 a 17 anos que estão matriculados no EM (a) e o total de crianças de 15 a 17 anos no país (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 3 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!--
+                        <br>Consulta o total de crianças de 6 a 14 anos matriculadas em uma escola (a) com o id informado ao final da linha
+                        <br><a href="https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}"
+                               target="_blank">https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}</a>
+                        <br>Consultas para obter o total de crianças entre 6 e 14 anos de um município (substituir {id_município} pelo id)
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_município}/v/93//C287/93085"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/4316907/v/93//C287/6561 retorna população de 10 a 14 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084 retorna população de 5 a 9 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562 retorna população de 5 anos</a> -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta03b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção de alunos de 15 a 17 anos que permanecem no EM (matrícula ativa) (a) e o total de jovens de 15 a 17 anos que abandonaram o EM (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 3 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!--
+                        <br>Consulta o total de crianças de 6 a 14 anos matriculadas em uma escola (a) com o id informado ao final da linha
+                        <br><a href="https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}"
+                               target="_blank">https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:matricula:id&filters=dim:matricula:idade>6;dim:matricula:idade<14;dim:escola:id=={id_escola}</a>
+                        <br>Consultas para obter o total de crianças entre 6 e 14 anos de um município (substituir {id_município} pelo id)
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_município}/v/93//C287/93085"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/4316907/v/93//C287/6561 retorna população de 10 a 14 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/93084 retorna população de 5 a 9 anos</a>
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/1378/n6/{id_municipio}/v/93//C287/6562 retorna população de 5 anos</a> -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta03 -->
 
             <!-- meta04 -->
             <div class="tab-pane fade" id="v-pills-meta04" role="tabpanel" aria-labelledby="v-pills-tab-meta04">
@@ -280,20 +341,45 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta04" aria-expanded="false" aria-controls="collapseMeta04">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta04a" aria-expanded="false" aria-controls="collapseMeta04">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta04b" aria-expanded="false" aria-controls="collapseMeta04">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta04">
+                <div class="collapse" id="collapseMeta04a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção de alunos de 4 a 16 anos com algum tipo de deficiência¹ que estão matriculados em uma escola não especial (a) e o total de jovens de 4 a 16 anos com algum tipo de deficiência no país (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 4 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Consulta para obter o total de crianças de 4 a 16 anos com algum tipo de deficiência em uma escola não especial (a)
+                        <br><a href="https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&filters=dim:matricula:surdo:cegueira==1,dim:matricula:surdez==1,dim:matricula:superdotado==1,dim:matricula:sindrome:rett==1,dim:matricula:sindrome:asperger==1,dim:matricula:deficiencia:multipla==1,dim:matricula:deficiencia:fisica==1,dim:matricula:deficiencia:intelectual==1,dim:matricula:deficiencia:auditiva==1;dim:matricula:censo:ano==2017;dim:matricula:idade>4;dim:matricula:idade<16;dim:escola:id==43098479"
+                               target="_blank">https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&filters=dim:matricula:surdo:cegueira==1,dim:matricula:surdez==1,dim:matricula:superdotado==1,dim:matricula:sindrome:rett==1,dim:matricula:sindrome:asperger==1,dim:matricula:deficiencia:multipla==1,dim:matricula:deficiencia:fisica==1,dim:matricula:deficiencia:intelectual==1,dim:matricula:deficiencia:auditiva==1;dim:matricula:censo:ano==2017;dim:matricula:idade>4;dim:matricula:idade<16;dim:escola:id=={id_escola}</a>
+                        <br>Consultas para obter o total de crianças com algum tipo de deficiência no município (substituir {id_município} pelo id)
+                        <br><a href="http://api.sidra.ibge.gov.br/values/t/3434/n6/{id_municipio}/v/93/c134/7815/c58/1141,1142/C12081/0"
+                               target="_blank">http://api.sidra.ibge.gov.br/values/t/3434/n6/{id_municipio}/v/93/c134/7815/c58/1141,1142/C12081/0</a>
+                        <br>
+                        <br>
+                        <br>¹Definido pelo Inep como deficiências a serem consideradas para essa meta: deficiência física, transtornos globais do desenvolvimento e altas habilidades ou superdotação.
                     </div>
+                </div>
+                <div class="collapse" id="collapseMeta04b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br> Não há métricas definidas pelo PNE para essa meta.
+                    </div>
+
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta04 -->
 
             <!-- meta05 -->
             <div class="tab-pane fade" id="v-pills-meta05" role="tabpanel" aria-labelledby="v-pills-tab-meta05">
@@ -304,20 +390,55 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta05" aria-expanded="false" aria-controls="collapseMeta05">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta05a" aria-expanded="false" aria-controls="collapseMeta05">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta05b" aria-expanded="false" aria-controls="collapseMeta05">
+                        Métrica 02
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta05c" aria-expanded="false" aria-controls="collapseMeta05">
+                        Métrica 03
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta05">
+                <div class="collapse" id="collapseMeta05a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção de alunos no 3ª ano do EF que ficaram nos níveis 3 e 4 do ANA leitura (a) pelo total de crianças no 3ª ano do EF (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 5 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta05b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção de alunos no 3ª ano do EF que ficaram nos níveis 4 e 5 do ANA escrita (a) pelo total de crianças no 3ª ano do EF (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 5 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta05c">
+                    <div class="mt-3">
+                        <br><strong>Métrica 03</strong>
+                        <br>Relação de proporção de alunos no 3ª ano do EF que ficaram nos níveis 3 e 4 do ANA matemática (a) pelo total de crianças no 3ª ano do EF (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 5 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta05 -->
 
             <!-- meta06 -->
             <div class="tab-pane fade" id="v-pills-meta06" role="tabpanel" aria-labelledby="v-pills-tab-meta06">
@@ -329,20 +450,45 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta06" aria-expanded="false" aria-controls="collapseMeta06">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta06a" aria-expanded="false" aria-controls="collapseMeta06">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta06b" aria-expanded="false" aria-controls="collapseMeta06">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta06">
+                <div class="collapse" id="collapseMeta06a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção entre o total de escolas públicas que oferecem educação integral (a) e
+                        o total de escolas públicas no Brasil (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 6 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta06b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção entre o total de alunos no EF e EM em escola com educação integral (a)
+                        e o total de alunos no EM e EF (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 6 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- meta06 -->
 
             <!-- meta07 -->
             <div class="tab-pane fade" id="v-pills-meta07" role="tabpanel" aria-labelledby="v-pills-tab-meta07">
@@ -354,20 +500,79 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta07" aria-expanded="false" aria-controls="collapseMeta07">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta07a" aria-expanded="false" aria-controls="collapseMeta07">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta07b" aria-expanded="false" aria-controls="collapseMeta07">
+                        Métrica 02
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta07c" aria-expanded="false" aria-controls="collapseMeta07">
+                        Métrica 03
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta07">
+                <div class="collapse" id="collapseMeta07a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Ideb do 1ª ao 5ª ano do ensino fundamental maior ou igual a 5,5
+                        <br>Forma de cálculo:
+                        <ul>
+                            <li>Se x = 0, contribui 0%;</li>
+                            <li>Se 0 < x <  1,37, contribui 25%;</li>
+                            <li>Se 1,38 < x < 2,75, contribui 50%;</li>
+                            <li>Se  2,78 < x < 4,15, contribui 75%</li>
+                            <li>Se 4,18 < x <= 5,5, contribui 100%.</li>
+                        </ul>
+                        <br>Porcentagem que a escola contribui para a meta 7 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta07b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Ideb do 6ª ao 9ª ano do ensino fundamental maior ou igual a 5
+                        <br>Forma de cálculo:
+                            <ul>
+                                <li>Se IDEB = 0, contribui 0%;</li>
+                                <li>Se 0 < IDEB <  1,25, contribui 25%;</li>
+                                <li>Se 1,26 < IDEB < 2,5, contribui 50%;</li>
+                                <li>Se 2,6 < IDEB < 3,75, contribui 75%</li>
+                                <li>Se 3,76 < IDEB <= 5, contribui 100%.</li>
+                            </ul>
+                        <br>Porcentagem que a escola contribui para a meta 7 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta07c">
+                    <div class="mt-3">
+                        <br><strong>Métrica 03</strong>
+                        <br>Ideb do ensino médio maior ou igual a 5
+                        <br>Forma de cálculo:
+                        <ul>
+                            <li>Se IDEB = 0, contribui 0%;</li>
+                            <li>Se 0 < IDEB <  1,25, contribui 25%;</li>
+                            <li>Se 1,26 < IDEB < 2,5, contribui 50%;</li>
+                            <li>Se 2,6 < IDEB < 3,75, contribui 75%</li>
+                            <li>Se 3,76 < IDEB <= 5, contribui 100%.</li>
+                        </ul>
+                        <br>Porcentagem que a escola contribui para a meta 7 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta07 -->
 
             <!-- meta08 -->
             <div class="tab-pane fade" id="v-pills-meta08" role="tabpanel" aria-labelledby="v-pills-tab-meta08">
@@ -387,6 +592,7 @@
                     Esta meta não se encaixa no escopo deste projeto.
                 </h2>
             </div>
+            <!-- /meta08 -->
 
             <!-- meta09 -->
             <div class="tab-pane fade" id="v-pills-meta09" role="tabpanel" aria-labelledby="v-pills-tab-meta09">
@@ -398,11 +604,45 @@
                     analfabetismo absoluto e reduzir em 50% (cinquenta por cento) a taxa de analfabetismo funcional.
                 </p>
 
-                <br>
-                <h2 class="h3-responsive">
-                    Esta meta não se encaixa no escopo deste projeto.
-                </h2>
+                <!-- Collapse buttons -->
+                <div>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta09a" aria-expanded="false" aria-controls="collapseMeta07">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta09b" aria-expanded="false" aria-controls="collapseMeta07">
+                        Métrica 02
+                    </a>
+                </div>
+                <!-- / Collapse buttons -->
+
+                <!-- Collapsible element -->
+                <div class="collapse" id="collapseMeta09a">
+                    <div class="mt-3">
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção entre total de pessoas maiores de 15 anos que sabem ler e escrever (dados censo) (a) e total de pessoas maiores de 15 anos (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 9 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta09b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção entre total de pessoas maiores de 15 anos analfabeta funcional (dados censo) (a) e total de pessoas maiores de 15 anos (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 9 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <!-- / Collapsible element -->
             </div>
+            <!-- /meta09 -->
 
             <!-- meta10 -->
             <div class="tab-pane fade" id="v-pills-meta10" role="tabpanel" aria-labelledby="v-pills-tab-meta10">
@@ -418,6 +658,7 @@
                     Esta meta não se encaixa no escopo deste projeto.
                 </h2>
             </div>
+            <!-- /meta10 -->
 
             <!-- meta11 -->
             <div class="tab-pane fade" id="v-pills-meta11" role="tabpanel" aria-labelledby="v-pills-tab-meta11">
@@ -429,20 +670,45 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta11" aria-expanded="false" aria-controls="collapseMeta11">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta11a" aria-expanded="false" aria-controls="collapseMeta11">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta11b" aria-expanded="false" aria-controls="collapseMeta11">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta11">
+                <div class="collapse" id="collapseMeta11a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção entre o total de matrículas no ensino fundamental profissionalizante
+                        (técnicos) da escola em questão (a) pelo total de matrículas no ensino fundamental
+                        profissionalizante do país (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 11 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta11b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção entre o total de matrículas no ensino médio profissionalizante (técnicos) da escola em questão (a) pelo total de matrículas no ensino médio profissionalizante do país (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 11 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta11 -->
 
             <!-- meta12 -->
             <div class="tab-pane fade" id="v-pills-meta12" role="tabpanel" aria-labelledby="v-pills-tab-meta12">
@@ -456,20 +722,65 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta12" aria-expanded="false" aria-controls="collapseMeta12">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta12a" aria-expanded="false" aria-controls="collapseMeta12">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta12b" aria-expanded="false" aria-controls="collapseMeta12">
+                        Métrica 02
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta12c" aria-expanded="false" aria-controls="collapseMeta12">
+                        Métrica 03
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta12">
+                <div class="collapse" id="collapseMeta12a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção entre o número total de matrículas ativas com idade entre 18 e 14 anos
+                        na Instituição de Ensino Superior em questão (a) e o total de matrículas ativas na IES em questão (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 12 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta12b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção entre o total de jovens entre 18  e 24 anos com matrícula ativa na
+                        Instituição de Ensino Superior em questão (a) e o total de jovens entre 18 e 24 anos no país² (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 12 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                        <br>
+                        <br>² Como universidades são mais abrangentes ao país com um todo e o acesso se dá pelo ENEM,
+                        definimos como proporção a soma de todos os jovens do país.
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta12c">
+                    <div class="mt-3">
+                        <br><strong>Métrica 03</strong>
+                        <br>Se a instituição em questão for Universidade Pública (a), teremos a relação de proporção
+                        entre o total de matrículas na IES em questão (b) e o total de matrículas em Instituições de Ensino
+                        Superior (c).
+                        <br>Forma de cálculo: Se (a) verdadeiro, (b/c) * 100.
+                        <br>Porcentagem que a escola contribui para a meta 12 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta12 -->
 
             <!-- meta13 -->
             <div class="tab-pane fade" id="v-pills-meta13" role="tabpanel" aria-labelledby="v-pills-tab-meta13">
@@ -482,20 +793,45 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta13" aria-expanded="false" aria-controls="collapseMeta13">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta13a" aria-expanded="false" aria-controls="collapseMeta13">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta13b" aria-expanded="false" aria-controls="collapseMeta13">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta13">
+                <div class="collapse" id="collapseMeta13a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção entre o total de professores na Instituição de Ensino Superior em questão
+                        com doutorado ou mestrado (a) e o total de professores nas Instituições de Ensino Superior (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 13 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta13b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção entre o total de professores na Instituição de Ensino Superior em
+                        questão com doutorado (a) e o total de professores nas Instituições de Ensino Superior (b).
+                        <br>Forma de cálculo: (a/b) * 100
+                        <br>Porcentagem que a escola contribui para a meta 13 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta13 -->
 
             <!-- meta14 -->
             <div class="tab-pane fade" id="v-pills-meta14" role="tabpanel" aria-labelledby="v-pills-tab-meta14">
@@ -507,20 +843,45 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta14" aria-expanded="false" aria-controls="collapseMeta14">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta14a" aria-expanded="false" aria-controls="collapseMeta14">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta14b" aria-expanded="false" aria-controls="collapseMeta14">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta14">
+                <div class="collapse" id="collapseMeta14a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Relação de proporção entre o total do número de titulações aprovadas para mestres na
+                        Instituição de Ensino Superior em questão (a) pelo objetivo da meta (60.000) no último ano.
+                        <br>Forma de cálculo: (a/60.000) * 100
+                        <br>Porcentagem que a escola contribui para a meta 14 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
+                    </div>
+                </div>
+                <div class="collapse" id="collapseMeta14b">
+                    <div class="mt-3">
+                        <br><strong>Métrica 02</strong>
+                        <br>Relação de proporção entre o total do número de titulações aprovadas para doutores na
+                        Instituição de Ensino Superior em questão (a) pelo objetivo da meta (25.000) no último ano.
+                        <br>Forma de cálculo: (a/25.000) * 100
+                        <br>Porcentagem que a escola contribui para a meta 14 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta14 -->
 
             <!-- meta15 -->
             <div class="tab-pane fade" id="v-pills-meta15" role="tabpanel" aria-labelledby="v-pills-tab-meta15">
@@ -533,22 +894,12 @@
                     assegurado que todos os professores e as professoras da educação básica possuam formação específica
                     de nível superior, obtida em curso de licenciatura na área de conhecimento em que atuam.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta15" aria-expanded="false" aria-controls="collapseMeta15">
-                        Em construção
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
-
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta15">
-                    <div class="mt-3">
-                        Em construção
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h2 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h2>
             </div>
+            <!-- /meta15 -->
 
             <!-- meta16 -->
             <div class="tab-pane fade" id="v-pills-meta16" role="tabpanel" aria-labelledby="v-pills-tab-meta16">
@@ -562,20 +913,40 @@
                 </p>
                 <!-- Collapse buttons -->
                 <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta16" aria-expanded="false" aria-controls="collapseMeta16">
-                        Em construção
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta16a" aria-expanded="false" aria-controls="collapseMeta16">
+                        Métrica 01
+                    </a>
+                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta16b" aria-expanded="false" aria-controls="collapseMeta16">
+                        Métrica 02
                     </a>
                 </div>
                 <!-- / Collapse buttons -->
 
                 <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta16">
+                <div class="collapse" id="collapseMeta16a">
                     <div class="mt-3">
-                        Em construção
+                        <br><strong>Métrica 01</strong>
+                        <br>Se a escola em questão for de Ensino Fundamental e Ensino Médio (a), então teremos a relação
+                        de proporção entre o total de professores atuantes no  Ensino Fundamental e Ensino Médio com
+                        alguma formação da escola em questão (b) e o total de professores atuantes no  Ensino
+                        Fundamental e Ensino Médio da escola em questão (c).
+                        <br>Forma de cálculo: Se (a) for verdadeiro, (b/c) * 100.
+                        <br>Porcentagem que a escola contribui para a meta 16 dentro de seu município.
+                        <br>
+                        <br>Fontes de dados:
+                        <br>Em construção
+                        <!-- só add os links -->
                     </div>
+                </div>
+                <div class="collapse" id="collapseMeta16b">
+                    <br><strong>Métrica 02</strong>
+                    <h2 class="h3-responsive">
+                        Esta meta não se encaixa no escopo deste projeto.
+                    </h2>
                 </div>
                 <!-- / Collapsible element -->
             </div>
+            <!-- /meta16 -->
 
             <!-- meta17 -->
             <div class="tab-pane fade" id="v-pills-meta17" role="tabpanel" aria-labelledby="v-pills-tab-meta17">
@@ -592,6 +963,7 @@
                     Esta meta não se encaixa no escopo deste projeto.
                 </h2>
             </div>
+            <!-- /meta17 -->
 
             <!-- meta18 -->
             <div class="tab-pane fade" id="v-pills-meta18" role="tabpanel" aria-labelledby="v-pills-tab-meta18">
@@ -609,6 +981,7 @@
                     Esta meta não se encaixa no escopo deste projeto.
                 </h2>
             </div>
+            <!-- /meta18 -->
 
             <!-- meta19 -->
             <div class="tab-pane fade" id="v-pills-meta19" role="tabpanel" aria-labelledby="v-pills-tab-meta19">
@@ -619,22 +992,12 @@
                     associada a critérios técnicos de mérito e desempenho e à consulta pública à comunidade escolar,
                     no âmbito das escolas públicas, prevendo recursos e apoio técnico da União para tanto.
                 </p>
-                <!-- Collapse buttons -->
-                <div>
-                    <a class="btn btn-primary-meu" data-toggle="collapse" href="#collapseMeta19" aria-expanded="false" aria-controls="collapseMeta19">
-                        Em construção
-                    </a>
-                </div>
-                <!-- / Collapse buttons -->
-
-                <!-- Collapsible element -->
-                <div class="collapse" id="collapseMeta19">
-                    <div class="mt-3">
-                        Em construção
-                    </div>
-                </div>
-                <!-- / Collapsible element -->
+                <br>
+                <h2 class="h3-responsive">
+                    Esta meta não se encaixa no escopo deste projeto.
+                </h2>
             </div>
+            <!-- meta19 -->
 
             <!-- meta20 -->
             <div class="tab-pane fade" id="v-pills-meta20" role="tabpanel" aria-labelledby="v-pills-tab-meta20">
@@ -651,7 +1014,7 @@
                     Esta meta não se encaixa no escopo deste projeto.
                 </h2>
             </div>
-
+            <!-- /meta20 -->
 
         </div>
     </div>
@@ -671,5 +1034,4 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <!-- meus -->
-<script src="scripts/index_scripts.js"></script>
 </html>
