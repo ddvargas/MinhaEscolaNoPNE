@@ -11,6 +11,8 @@ var meta21a = 0;
 var meta21b = 0;
 var meta21c = 0;
 var meta21d = 0;
+var meta22a = 0;
+var meta22b = 0;
 var meta31a = 0;
 var meta31b = 0;
 var meta41a = 0;
@@ -581,6 +583,12 @@ function recuperarMetricas() {
     var linkMeta21b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/93085"; // 10 a 14 anos
     var linkMeta21c = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/93084"; // 5 a 9 anos
     var linkMeta21d = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93//C287/6562"; // 5 anos
+    var linkMeta22a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=&filters=dim:" +
+        "matricula:etapa:ensino<11,dim:matricula:etapa:ensino==14,dim:matricula:etapa:ensino==15,dim:matricula:etapa:ensino==16," +
+        "dim:matricula:etapa:ensino==17,dim:matricula:etapa:ensino==18,dim:matricula:etapa:ensino==19,dim:matricula:etapa:ensino==20," +
+        "dim:matricula:etapa:ensino==21,dim:matricula:etapa:ensino==41;dim:matricula:idade>16;dim:escola:id==" + escolaID;
+    var linkMeta22b = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=&" +
+        "filters=dim:matricula:idade>16;dim:escola:id==" + escolaID;
     var linkMeta31a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=&" +
         "filters=dim:matricula:idade==15,dim:matricula:idade==16,dim:matricula:idade==17;dim:escola:id==" +
         escolaID + ";dim:matricula:censo:ano==2017;dim:turma:etapa:ensino==25,dim:turma:etapa:ensino==26," +
@@ -684,6 +692,19 @@ function recuperarMetricas() {
     calcularDadosMeta21();
     // /meta2.1
 
+
+    // meta 2.2
+    xmlRequest.open("GET", linkMeta22a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4){
+        recuperarDadosMeta22a(JSON.parse(xmlRequest.response));
+    }
+    xmlRequest.open("GET", linkMeta22b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4){
+        recuperarDadosMeta22b(JSON.parse(xmlRequest.response));
+    }
+    // /meta 2.2
 
     // meta 4.1
     xmlRequest.open("GET", linkMeta41a, false);
@@ -807,6 +828,29 @@ function calcularDadosMeta21() {
 }
 // /meta 2.1
 
+// meta 2.2
+function recuperarDadosMeta22a(data) {
+    if (data){
+        meta22a = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("Meta 2.2 a: " + meta22a);
+    }
+}
+function recuperarDadosMeta22b(data) {
+    if (data){
+        meta22b = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("Meta 2.2 b: " + meta22b);
+    }
+    calcularDadosMeta22();
+}
+function calcularDadosMeta22(){
+    if (meta22a && meta22b){
+        var dadosEscola = (meta22a/meta22b)*100;
+        criarGrafico(dadosEscola.toFixed(2), "pieChartMeta22");
+    }else {
+        criarGrafico(0, "pieChartMeta22");
+    }
+}
+// /meta 2.2
 
 //meta 3.1
 function recuperarDadosMeta31a(data) {
