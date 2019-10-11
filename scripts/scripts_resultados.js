@@ -570,8 +570,8 @@ function getParameters(parametro) {
 
 
 function recuperarMetricas() {
-    var linkMeta11a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
-        "filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:escola:id==" + escolaID;
+    var linkMeta11a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=dim:escola:id" +
+        "&filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:matricula:censo:ano==2017;dim:escola:id==" + escolaID;
     var linkMeta11b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/6562"; // 5 anos
     var linkMeta11c = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/6561"; // 4 anos
     var linkMeta12a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
@@ -757,7 +757,7 @@ function recuperarMetricas() {
  * @param data dados retornados da consulta
  */
 function recuperarDadosMeta11a(data) {
-    meta11a = data.length;
+    meta11a = parseInt(data[0]["met:count:matricula:id"]);
     console.log("Meta11a: " + meta11a);
 }
 function recuperarDadosMeta11b(data) {
