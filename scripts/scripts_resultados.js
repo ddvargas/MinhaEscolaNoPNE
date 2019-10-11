@@ -808,7 +808,30 @@ function calcularDadosMeta21() {
 // /meta 2.1
 
 
+//meta 3.1
+function recuperarDadosMeta31a(data) {
+    if (data){
+        meta31a = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("MEta 3.1 a: " + meta31a);
+    }
+}
+function recuperarDadosMeta31b(data) {
+    if (data){
+        meta31b = parseInt(data[1]["V"]);
+        console.log("Meta 3.1 b: " + meta31b);
+    }
+    if (meta31a && meta31b){
+        calcularDadosMeta31();
+    }else{
+        criarGrafico(0, "pieChartMeta31");
+    }
 
+}
+function calcularDadosMeta31(){
+    var dadosEscola = (meta31a / meta31b) * 100;
+    criarGrafico(dadosEscola.toFixed(2), "pieChartMeta31");
+}
+// /meta3.1
 
 // meta 4.1
 function recuperarDadosMeta41a(data) {
