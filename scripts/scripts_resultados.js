@@ -710,6 +710,7 @@ function recuperarMetricas() {
     if (xmlRequest.readyState === 4){
         recuperarDadosMeta22b(JSON.parse(xmlRequest.response));
     }
+    calcularDadosMeta22();
     // /meta 2.2
 
     // meta 3.1
@@ -778,16 +779,22 @@ function recuperarMetricas() {
  * @param data dados retornados da consulta
  */
 function recuperarDadosMeta11a(data) {
-    meta11a = parseInt(data[0]["met:count:matricula:id"]);
-    console.log("Meta11a: " + meta11a);
+    if (!isEmpty(data)){
+        meta11a = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("Meta11a: " + meta11a);
+    }
 }
 function recuperarDadosMeta11b(data) {
-    meta11b = parseInt(data[1]["V"]);
-    console.log("Meta11b: " + meta11b);
+    if (!isEmpty(data)){
+        meta11b = parseInt(data[1]["V"]);
+        console.log("Meta11b: " + meta11b);
+    }
 }
 function recuperarDadosMeta11c(data) {
-    meta11c = parseInt(data[1]["V"]);
-    console.log("Meta11c: " + meta11c);
+    if (!isEmpty(data)){
+        meta11c = parseInt(data[1]["V"]);
+        console.log("Meta11c: " + meta11c);
+    }
 }
 function calcularDadosMeta11() {
     var dadosEscola;
@@ -861,7 +868,6 @@ function recuperarDadosMeta22b(data) {
         meta22b = parseInt(data[0]["met:count:matricula:id"]);
         console.log("Meta 2.2 b: " + meta22b);
     }
-    calcularDadosMeta22();
 }
 function calcularDadosMeta22(){
     if (meta22a && meta22b){
@@ -1005,3 +1011,11 @@ function criarGrafico(dadoEscola, elementID) {
 // /CRIAR GRAFICOS PIZZA ÚNICA
 
 
+function isEmpty(obj) {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return true;
+}
