@@ -811,8 +811,10 @@ function calcularDadosMeta11() {
  * @param data dados retornados da consulta
  */
 function recuperarDadosMeta12a(data) {
-    meta12a = data.length;
-    console.log("Meta12a: " + meta12a);
+    if (!isEmpty(data)){
+        meta12a = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("Meta 1.2 a: " + meta12a);
+    }
 }
 function recuperarDadosMeta12b(data) {
     meta12b = parseInt(data[1]["V"]);
