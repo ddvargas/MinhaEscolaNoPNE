@@ -15,6 +15,8 @@ var meta22a = 0;
 var meta22b = 0;
 var meta31a = 0;
 var meta31b = 0;
+var meta32a = 0;
+var meta32b = 0;
 var meta41a = 0;
 var meta41b = 0;
 var meta91b = 0;
@@ -594,7 +596,11 @@ function recuperarMetricas() {
         escolaID + ";dim:matricula:censo:ano==2017;dim:turma:etapa:ensino==25,dim:turma:etapa:ensino==26," +
         "dim:turma:etapa:ensino==27,dim:turma:etapa:ensino==28";
     var linkMeta31b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + instituicao.municipio + "/v/93/C287/107453";
-    //TODO: Adicionar links para a meta 3.2 A e B
+   var linkMeta32a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=&filters=dim:matricula:idade>" +
+       "15;dim:matricula:idade<17;dim:matricula:censo:ano==2017;dim:turma:etapa:ensino>24;dim:turma:etapa:ensino<39;" +
+       "dim:escola:id==" + escolaID;
+   var linkMeta32b = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=&filters=" +
+       "dim:matricula:idade>15;dim:matricula:idade<17;dim:matricula:censo:ano==2017;dim:escola:id==" + escolaID;
     var linkMeta41a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=&" +
         "filters=dim:matricula:surdo:cegueira==1,dim:matricula:surdez==1,dim:matricula:superdotado==1," +
         "dim:matricula:sindrome:rett==1,dim:matricula:sindrome:asperger==1,dim:matricula:deficiencia:multipla==1," +
@@ -706,6 +712,32 @@ function recuperarMetricas() {
     }
     // /meta 2.2
 
+    // meta 3.1
+    xmlRequest.open("GET", linkMeta31a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4){
+        recuperarDadosMeta31a(JSON.parse(xmlRequest.response));
+    }
+    xmlRequest.open("GET", linkMeta31b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4){
+        recuperarDadosMeta31b(JSON.parse(xmlRequest.response));
+    }
+    // /meta 3.1
+
+    // meta 3.2
+    xmlRequest.open("GET", linkMeta32a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4){
+        recuperarDadosMeta32a(JSON.parse(xmlRequest.response));
+    }
+    xmlRequest.open("GET", linkMeta32b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4){
+        recuperarDadosMeta32b(JSON.parse(xmlRequest.response));
+    }
+    // /meta 3.2
+
     // meta 4.1
     xmlRequest.open("GET", linkMeta41a, false);
     xmlRequest.send(null);
@@ -719,18 +751,7 @@ function recuperarMetricas() {
     }
     // /meta 4.1
 
-    // meta 3.1
-    xmlRequest.open("GET", linkMeta31a, false);
-    xmlRequest.send(null);
-    if (xmlRequest.readyState === 4){
-        recuperarDadosMeta31a(JSON.parse(xmlRequest.response));
-    }
-    xmlRequest.open("GET", linkMeta31b, false);
-    xmlRequest.send(null);
-    if (xmlRequest.readyState === 4){
-        recuperarDadosMeta31b(JSON.parse(xmlRequest.response));
-    }
-    // /meta 3.1
+
 
     // meta 9.1
     if (instituicao.eja != "Não.") {
@@ -876,6 +897,30 @@ function calcularDadosMeta31(){
     criarGrafico(dadosEscola.toFixed(2), "pieChartMeta31");
 }
 // /meta3.1
+
+// meta 3.2
+function recuperarDadosMeta32a(data) {
+    if (data){
+        meta32a = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("Meta 3.2 a: " + meta32a);
+    }
+}
+function recuperarDadosMeta32b(data) {
+    if (data){
+        meta32b = parseInt(data[0]["met:count:matricula:id"]);
+        console.log("Meta 3.2 b: " + meta32b);
+        calcularDadosMeta32();
+    }
+}
+function calcularDadosMeta32() {
+    if (meta32a && meta32b){
+        var dadosEscola = (meta32a / meta32b) * 100;
+        criarGrafico(dadosEscola.toFixed(2), "pieChartMeta32");
+    }else{
+        criarGrafico(0, "pieChartMeta32");
+    }
+}
+// /meta 3.2
 
 // meta 4.1
 function recuperarDadosMeta41a(data) {
