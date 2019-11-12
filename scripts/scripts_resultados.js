@@ -19,6 +19,9 @@ var meta32a = 0;
 var meta32b = 0;
 var meta41a = 0;
 var meta41b = 0;
+
+
+
 var meta91b = 0;
 var meta91c = 0;
 
@@ -609,18 +612,35 @@ function recuperarMetricas() {
     var linkMeta41b = "http://api.sidra.ibge.gov.br/values/t/3434/n6/" + instituicao.municipio +
         "/v/93/c134/7815/c58/1141,1142/C12081/0";
     //TODO: Adicionar links para a meta 4.2 A e B;
-    //TODO: Adicionar links para a meta 5.1 A
-    var linkMeta51LeituraB = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&" +
-        "filters=dim:escola:id==" + escolaID + ";dim:matricula:etapa:ensino==6,dim:matricula:etapa:ensino==16;" +
-        "dim:matricula:censo:ano==2017";
-    //TODO: Adicionar links para a meta 5.2 A
-    var linkMeta52EscritaB = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&" +
-        "filters=dim:escola:id==" + escolaID + ";dim:matricula:etapa:ensino==6,dim:matricula:etapa:ensino==16;" +
-        "dim:matricula:censo:ano==2017";
-    //TODO: Adicionar links para a meta 5.3 A
-    var linkMeta53MatematicaB = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:matricula:id&" +
-        "filters=dim:escola:id==" + escolaID + ";dim:matricula:etapa:ensino==6,dim:matricula:etapa:ensino==16;" +
-        "dim:matricula:censo:ano==2017";
+
+    //retorna total de alunos do 3º ano fundamental da escola
+    // var linkMeta5 = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nu:matriculados:censo&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
+    //retorna percentual de alunos nível 3 em leitura
+    // var linkMeta51A = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nivel:3:lpo&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
+    //retorna percentual de alunos nível 4 em leitura
+    // var linkMeta51B = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nivel:4:lpo&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
+    //retorna percentual de alunos nível 4 em escrita
+    // var linkMeta52A = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nivel:4:lpd&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
+    //retorna percentual de alunos nível 5 em escrita
+    // var linkMeta52B = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nivel:5:lpd&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
+    //retorna percentual de alunos nível 3 em matemática
+    // var linkMeta53A = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nivel:3:mt&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
+    //retorna percentual de alunos nível 4 em matemática
+    // var linkMeta53B = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:nivel:4:mt&" +
+    //    "filters=dim:escola:id==" + escolaID + ";dim:id:exame:ana==2016";
+
     //TODO: Adicionar links meta 6
     //TODO: Adicionar links meta 7
     var linkMeta91b = "http://api.sidra.ibge.gov.br/values/t/204/n6/" + instituicao.municipio +
