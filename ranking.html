@@ -44,7 +44,7 @@
     <!-- título -->
     <div class="card-body">
         <h1 class="h1-responsive h1 font-bold pt-5 mb-1 text-center py-1 text-orange px-4">Minha escola no PNE</h1>
-        <p class="card-text text-center">Quanto minha escola contibui para a educação e as metas do PNE?</p>
+        <p class="card-text text-center">Qual escola contribui mais com as metas do PNE?</p>
     </div>
     <!-- fim título -->
 
@@ -55,27 +55,46 @@
                     id="selecionar_estados" onchange="itemEstadoMudado()">
                 <option value="Selecionar" selected>Selecionar estado...</option>
             </select>
-        </div>
-
-        <div class="form-group">
-            <div class="md-form">
-                <div class="easy-autocomplete eac-square" style="width: auto">
-                    <input id="campo_nome_escola" class="form-control form-control-lg" type="text" placeholder="Nome da escola">
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <button id="btn_iniciar_pesquisa" class="btn btn-orange-meu my-5 py-sm-3" type="button"
-                    onclick="abrirReport()">
-                <i class="fas fa-search text-grey" aria-hidden="true"></i>
-                Pesquisar
-            </button>
+            <select class="browser-default custom-select custom-select-lg mb-3 "
+                    id="selecionar_cidades" onchange="itemCidadeMudado()">
+                <option value="Selecionar" selected>Selecionar município...</option>
+            </select>
+            <select class="browser-default custom-select custom-select-lg mb-3 "
+                    id="selecionar_tipoInstituicao" onchange="itemTipoInstituicaoMudado()">
+                <option value="selecionar" selected>Selecionar tipo de instituição...</option>
+                <option value="ies">Instituição de Ensino Superior</option>
+                <option value="escola">Escolas</option>
+            </select>
+            <select class="browser-default custom-select custom-select-lg mb-3 "
+                    id="selecionar_meta" onchange="itemMetaMudado()">
+                <option value="Selecionar" selected>Selecionar meta...</option>
+            </select>
         </div>
     </form>
     <!-- Fim do formulário de pesquisa -->
 </div>
 <!-- Fim card de pesquisa -->
+
+<!-- card do ranking -->
+<div class="card">
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Cras justo odio
+                <span class="badge badge-primary badge-pill">14</span>
+            </li>
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Dapibus ac facilisis in
+                <span class="badge badge-primary badge-pill">2</span>
+            </li>
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Morbi leo risus
+                <span class="badge badge-primary badge-pill">1</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /card do ranking -->
 
 </body>
 <!-- SCRIPTS -->
@@ -87,15 +106,11 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
-
-<!--PLUGIN DE AUTOCOMPLETE -->
-<!-- JS file -->
-<script src="js/jquery.easy-autocomplete.js"></script>
 <!-- CSS file -->
 <link rel="stylesheet" href="css/easy-autocomplete.min.css">
 <!-- Additional CSS Themes file - not required-->
 
 
 <!-- meus -->
-<script src="scripts/index_scripts.js"></script>
+<script src="scripts/ranking_script.js"></script>
 </html>
