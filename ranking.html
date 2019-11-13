@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Minha escola no PNE</title>
+
+    <!-- BOOTSTRAP -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- JQUERY -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+
+
+    <!-- ESTILOS -->
+    <!-- Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body>
+<!-- Início do menú -->
+<ul class="nav  nav-pills nav-fill">
+    <li class="nav-item"><a class="nav-link" href="index.html">Pesquise</a></li>
+    <li class="nav-item"><a class="nav-link active-meu" href="">Ranking</a></li>
+    <li class="nav-item"><a class="nav-link" href="sobreMetricas.html">Sobre as métricas</a></li>
+    <li class="nav-item"><a class="nav-link" href="sobrePNE.html">Sobre o PNE</a></li>
+    <li class="nav-item"><a class="nav-link" href="sobreProjeto.html">Sobre o projeto</a></li>
+</ul>
+<!-- Fim do menú -->
+
+<!-- Card de pesquisa + título -->
+<div class="card">
+    <!-- título -->
+    <div class="card-body">
+        <h1 class="h1-responsive h1 font-bold pt-5 mb-1 text-center py-1 text-orange px-4">Minha escola no PNE</h1>
+        <p class="card-text text-center">Quanto minha escola contibui para a educação e as metas do PNE?</p>
+    </div>
+    <!-- fim título -->
+
+    <!-- Formulário de pesquisa -->
+    <form autocomplete="off" action="resultadoEscola.html" class="text-center border border-light p-5">
+        <div class="form-group">
+            <select class="browser-default custom-select custom-select-lg mb-3 "
+                    id="selecionar_estados" onchange="itemEstadoMudado()">
+                <option value="Selecionar" selected>Selecionar estado...</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div class="md-form">
+                <div class="easy-autocomplete eac-square" style="width: auto">
+                    <input id="campo_nome_escola" class="form-control form-control-lg" type="text" placeholder="Nome da escola">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button id="btn_iniciar_pesquisa" class="btn btn-orange-meu my-5 py-sm-3" type="button"
+                    onclick="abrirReport()">
+                <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                Pesquisar
+            </button>
+        </div>
+    </form>
+    <!-- Fim do formulário de pesquisa -->
+</div>
+<!-- Fim card de pesquisa -->
+
+</body>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<!--PLUGIN DE AUTOCOMPLETE -->
+<!-- JS file -->
+<script src="js/jquery.easy-autocomplete.js"></script>
+<!-- CSS file -->
+<link rel="stylesheet" href="css/easy-autocomplete.min.css">
+<!-- Additional CSS Themes file - not required-->
+
+
+<!-- meus -->
+<script src="scripts/index_scripts.js"></script>
+</html>
