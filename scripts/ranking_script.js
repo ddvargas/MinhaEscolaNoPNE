@@ -125,7 +125,7 @@ function listarMunicipios(response) {
         var cidades = [];
 
         for (var i in response) {
-            cidades.push(new Cidade(response[i]["dim:cidade:id"], response[i]["dim:cidade:nome"]));
+            cidades.push(new Cidade(response[i]["dim:cidade:id"], formatarCidade(response[i]["dim:cidade:nome"])));
         }
         cidades.sort(function (a, b) {
             return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
@@ -225,6 +225,40 @@ function itemMetaMudado() {
     //TODO: Limpar a lista do ranking
     //TODO: recalcular as metas para cada instituição da lista
     //TODO: mostrar a nova lista de instituições
+}
+
+/**
+ * Formata o nome da cidade para tirar  o \t e deixar as letras iniciais maiusculas
+ * @param cidade string a ser formatada
+ * @returns {*|boolean|Promise<Response|undefined>|RegExpMatchArray}
+ */
+function formatarCidade(cidade) {
+    if (cidade) {
+        var wordsToIgnore = ["das", "dos", "da", "do", "de", "dalla"];
+        var minLenght = 3;
+        var cidadeNova = "";
+
+        cidade = cidade.toLowerCase();
+        cidade = cidade.replace(/\t/g, ' ');
+        cidade = getWords(cidade);
+        for (var i in cidade) {
+            if (wordsToIgnore.indexOf(cidade[i]) == -1 && cidade[i].length > minLenght) {
+                cidade[i] = cidade[i].charAt(0).toUpperCase() + cidade[i].slice(1);
+            }
+            cidadeNova += cidade[i] + " ";
+        }
+        cidade = cidadeNova;
+    }
+    return cidade;
+}
+
+/**
+ * Retorna um vetor de palavras existentes em uma frase
+ * @param frase
+ * @returns {*|boolean|Promise<Response | undefined>|RegExpMatchArray}
+ */
+function getWords(frase) {
+    return frase.match(/\S+\s*/g);
 }
 
 //TODO: função para recuperar as de métricas de cada instituição
