@@ -204,6 +204,7 @@ function recuperarInstituicoes() {
  * @param tipo tipo de instituições recuperadas
  */
 function listarInstituicoes(response, tipo) {
+    limparArray(instituicoes);
     if (response) {
         if (tipo == "ies") {
             for (var i in response) {
