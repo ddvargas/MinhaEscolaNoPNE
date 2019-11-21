@@ -12,7 +12,7 @@ function Cidade(idCidade, nomeCidade) {
 }
 
 window.onload = function () {
-    preloader(-1);
+    preloader(false);
     document.getElementById("preloader").style.display = 'none';
     document.getElementById("resultado").style.display = 'none';
     listarMetricasDisponíveis();
@@ -226,35 +226,27 @@ function listarInstituicoes(response, tipo) {
  * Define o comportamento ao mudar o item da meta
  */
 function itemMetaMudado() {
-    preloader(0);
+    preloader(true);
     //TODO: Limpar a lista do ranking
     //TODO: recalcular as metas para cada instituição da lista
     //TODO: montar a nova lista de instituições
-    preloader(1);
+    preloader(true);
 }
 
 /**
  * Deixa ou não o preloader e a lista de resultados visiível
- * @param status de visialização 0-preloader visível, lista invisível  1-preloader invisível, lista visível
+ * @param status true para ativar o preloader e esconder a lista
  */
 function preloader(status) {
     var preloader = document.getElementById("preloader");
     var listaResultado = document.getElementById("resultado");
-    switch (status) {
-        case 0:
-            //preloader visível, lista invisível
-            preloader.style.display = 'block';
-            listaResultado.style.display = 'none';
-            break;
-        case 1:
-            //preloader invisível, lista visível
-            preloader.style.display = 'none';
-            listaResultado.style.display = 'block';
-            break;
-        default:
-            //ambos invisíveis
-            preloader.style.display = 'none';
-            listaResultado.style.display = 'none';
+    if(status){
+        //se for verdadeira deixa ativo o preloader e esconde a lista
+        preloader.style.display = 'block';
+        listaResultado.style.display = 'none';
+    }else{
+        preloader.style.display = 'none';
+        listaResultado.style.display = 'block';
     }
 }
 
