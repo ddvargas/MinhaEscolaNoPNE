@@ -39,7 +39,7 @@ function Cidade(idCidade, nomeCidade) {
 }
 
 window.onload = function () {
-    preloader(false);
+    preloader(0);
     document.getElementById("preloader").style.display = 'none';
     document.getElementById("resultado").style.display = 'none';
     listarMetricasDisponíveis();
@@ -253,27 +253,42 @@ function listarInstituicoes(response, tipo) {
  * Define o comportamento ao mudar o item da meta
  */
 function itemMetaMudado() {
-    preloader(true);
+    preloader(1);
     //TODO: Limpar a lista do ranking
     //TODO: recalcular as metas para cada instituição da lista
     //TODO: montar a nova lista de instituições
-    preloader(true);
+    preloader(2);
 }
 
 /**
  * Deixa ou não o preloader e a lista de resultados visiível
- * @param status true para ativar o preloader e esconder a lista
+ * @param status tipo de ativação do preloader e lista: 0-nenhum  1-apenas preloader  2-apenas lista  3-ambos
  */
 function preloader(status) {
     var preloader = document.getElementById("preloader");
     var listaResultado = document.getElementById("resultado");
-    if(status){
-        //se for verdadeira deixa ativo o preloader e esconde a lista
-        preloader.style.display = 'block';
-        listaResultado.style.display = 'none';
-    }else{
-        preloader.style.display = 'none';
-        listaResultado.style.display = 'block';
+
+    switch (status) {
+        case 0:
+            //nenhum aparece
+            preloader.style.display = 'none';
+            listaResultado.style.display = 'none';
+            break;
+        case 1:
+            //apenas preloader
+            preloader.style.display = 'block';
+            listaResultado.style.display = 'none';
+            break;
+        case 2:
+            //apenas lista
+            preloader.style.display = 'none';
+            listaResultado.style.display = 'block';
+            break;
+        case 3:
+            //ambos
+            preloader.style.display = 'block';
+            listaResultado.style.display = 'block';
+            break;
     }
 }
 
