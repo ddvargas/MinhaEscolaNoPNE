@@ -4,6 +4,7 @@ function Instituicao(idInstituicao, nomeInstituicao, tipo) {
     this.id = idInstituicao;
     this.nome = nomeInstituicao;
     this.tipo = tipo;
+    this.metas = [];
 }
 
 function Cidade(idCidade, nomeCidade) {
@@ -286,4 +287,45 @@ function getWords(frase) {
 
 //TODO: função para recuperar as de métricas de cada instituição
 //TODO: fazer função para rankerar as instituições
-//TODO: fazer função para mostrar as instituições na interface
+
+function mostrarRanking(instituicoes, idMeta) {
+    if (instituicoes){
+        var lista = document.getElementById("resultado-list");
+        var iesTeste = new Instituicao(1554, "NomeFake", "IES");
+        instituicoes.push(iesTeste);
+
+        var meta1 = new Meta(1, "meta1", 15);
+        iesTeste.metas.push(meta1);
+        if (instituicoes.length > 0){
+            for (var i in instituicoes){
+                var li = document.createElement('li');
+                var span = document.createElement('span');
+
+                li.setAttribute("class", "list-group-item list-group-item-action d-flex justify-content-between align-items-center");
+                span.setAttribute('class', "badge badge-primary badge-pill");
+                li.innerText = i + ". " + instituicoes.nome;
+
+                for (var j in instituicoes[i].metas){
+                    if (instituicoes[i].metas[j].id === idMeta){
+                        span.innerText = instituicoes[i].metas[j].nota;
+                    }
+                }
+                li.appendChild(span);
+                lista.appendChild(li);
+            }
+        }else{
+            //mostrar mensagem que nenhuma instituição foi recuperada?
+            var li = document.createElement('li');
+            var span = document.createElement('span');
+
+            li.setAttribute("class", "list-group-item list-group-item-action d-flex justify-content-between align-items-center");
+            span.setAttribute('class', "badge badge-primary badge-pill");
+
+            li.innerText = "Nenhuma instituição foi recuperada";
+            span.innerText = '!';
+
+            li.appendChild(span);
+            lista.appendChild(li);
+        }
+    }
+}
