@@ -254,14 +254,15 @@ function listarInstituicoes(response, tipo) {
  */
 function itemMetaMudado() {
     preloader(1);
-    //TODO: Limpar a lista do ranking
+    //TODO: Limpar a lista do ranking da interface
     //TODO: recalcular as metas para cada instituição da lista
-    //TODO: montar a nova lista de instituições
+    //TODO: reordenar a lista
+    mostrarRanking(instituicoes, 1);
     preloader(2);
 }
 
 /**
- * Deixa ou não o preloader e a lista de resultados visiível
+ * Deixa ou não o preloader e a lista de resultados visível
  * @param status tipo de ativação do preloader e lista: 0-nenhum  1-apenas preloader  2-apenas lista  3-ambos
  */
 function preloader(status) {
@@ -327,16 +328,17 @@ function getWords(frase) {
 }
 
 //TODO: função para recuperar as de métricas de cada instituição
-//TODO: fazer função para rankerar as instituições
+//TODO: fazer função para rankerar/ordenar as instituições
 
+/**
+ * Monta uma lista na interface com as instituições recebidas
+ * @param instituicoes lista de instituições já osrdenadas de acordo com a meta requerida
+ * @param idMeta número da meta a ser exibida no rankink
+ */
 function mostrarRanking(instituicoes, idMeta) {
     if (instituicoes){
         var lista = document.getElementById("resultado-list");
-        var iesTeste = new Instituicao(1554, "NomeFake", "IES");
-        instituicoes.push(iesTeste);
 
-        var meta1 = new Meta(1, "meta1", 15);
-        iesTeste.metas.push(meta1);
         if (instituicoes.length > 0){
             for (var i in instituicoes){
                 var li = document.createElement('li');
@@ -344,11 +346,12 @@ function mostrarRanking(instituicoes, idMeta) {
 
                 li.setAttribute("class", "list-group-item list-group-item-action d-flex justify-content-between align-items-center");
                 span.setAttribute('class', "badge badge-primary badge-pill");
-                li.innerText = i + ". " + instituicoes.nome;
+                li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome;
 
                 for (var j in instituicoes[i].metas){
                     if (instituicoes[i].metas[j].id === idMeta){
                         span.innerText = instituicoes[i].metas[j].nota;
+                        break;
                     }
                 }
                 li.appendChild(span);
