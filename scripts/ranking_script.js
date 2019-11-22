@@ -1,5 +1,12 @@
 var instituicoes = [];
 
+/**
+ * Definição da estrutura de uma instituição
+ * @param idInstituicao id unico retornado da base de dados
+ * @param nomeInstituicao nome retornado da base de dados
+ * @param tipo tipo de instituição (ies/escola)
+ * @constructor
+ */
 function Instituicao(idInstituicao, nomeInstituicao, tipo) {
     this.id = idInstituicao;
     this.nome = nomeInstituicao;
@@ -7,6 +14,25 @@ function Instituicao(idInstituicao, nomeInstituicao, tipo) {
     this.metas = [];
 }
 
+/**
+ * Definição de uma estrutura de metas e notas
+ * @param idMeta numero da meta
+ * @param nomeMeta nome da meta
+ * @param notaMeta nota da instituição para a meta
+ * @constructor
+ */
+function Meta(idMeta, nomeMeta, notaMeta){
+    this.id = idMeta;
+    this.nome = nomeMeta;
+    this.nota = nomeMeta;
+}
+
+/**
+ * Estrutura de uma cidade
+ * @param idCidade id dela retornado da base de dados
+ * @param nomeCidade nome dela retornad da base de dados
+ * @constructor
+ */
 function Cidade(idCidade, nomeCidade) {
     this.id = idCidade;
     this.nome = nomeCidade;
