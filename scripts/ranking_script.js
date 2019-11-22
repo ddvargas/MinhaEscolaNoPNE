@@ -257,6 +257,7 @@ function listarInstituicoes(response, tipo) {
 function itemMetaMudado() {
     preloader(1);
     //TODO: Limpar a lista do ranking da interface
+    limparListaRanking();
     //TODO: recalcular as metas para cada instituição da lista
     //TODO: reordenar a lista
     var listaMetas = document.getElementById("selecionar_meta");
@@ -347,7 +348,10 @@ function getWords(frase) {
  */
 function mostrarRanking(instituicoes, idMeta) {
     if (instituicoes){
-        var lista = document.getElementById("resultado-list");
+        var listaDiv = document.getElementById("resultado");
+        var lista = document.createElement('ul');
+        lista.setAttribute("class", "list-group");
+        lista.setAttribute("id", "resultado-list");
 
         if (instituicoes.length > 0){
             for (var i in instituicoes){
@@ -381,5 +385,15 @@ function mostrarRanking(instituicoes, idMeta) {
             li.appendChild(span);
             lista.appendChild(li);
         }
+
+        listaDiv.appendChild(lista);
     }
+}
+
+/**
+ * Remove todos os elementos da lista de ranking sendo mostrada na inteface
+ */
+function limparListaRanking() {
+    var lista = document.getElementById("resultado-list");
+    lista.remove();
 }
