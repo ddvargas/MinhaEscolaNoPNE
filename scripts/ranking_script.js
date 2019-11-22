@@ -183,6 +183,8 @@ function itemMunicipiosMudado() {
  * */
 function itemEstadoMudado() {
     limparListaDeOpcoes("selecionar_cidades", "Selecionar município...");
+    document.getElementById("selecionar_tipoInstituicao").selectedIndex = 0;
+    document.getElementById("selecionar_meta").selectedIndex = 0;
     recuperarMunicipios();
 }
 
@@ -257,8 +259,16 @@ function itemMetaMudado() {
     //TODO: Limpar a lista do ranking da interface
     //TODO: recalcular as metas para cada instituição da lista
     //TODO: reordenar a lista
-    mostrarRanking(instituicoes, 1);
-    preloader(2);
+    var listaMetas = document.getElementById("selecionar_meta");
+
+
+    if (listaMetas.options[listaMetas.selectedIndex].value > 0){
+        mostrarRanking(instituicoes, 1);
+        preloader(2);
+    }else{
+        preloader(0);
+    }
+
 }
 
 /**
