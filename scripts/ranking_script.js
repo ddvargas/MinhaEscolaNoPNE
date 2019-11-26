@@ -476,7 +476,10 @@ function mostrarRanking(instituicoes, idMeta) {
 
                 // raking com percentual da meta
                 if (instituicoes[i] !== undefined) {
-                    li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome + " " + instituicoes[i].nota.toFixed(2) + "%";
+                    // exibe somente escolas com dados para a métrica escolhida
+                    if (instituicoes[i].nota !== 0) {
+                        li.innerText = parseInt(i) + 1 + " -   " + instituicoes[i].nota.toFixed(2) + "%   - "+ instituicoes[i].nome;
+                    }
                 } else {
                     li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome;
                 }
