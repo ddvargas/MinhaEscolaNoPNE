@@ -7,9 +7,10 @@ var instituicoes = [];
  * @param tipo tipo de instituição (ies/escola)
  * @constructor
  */
-function Instituicao(idInstituicao, nomeInstituicao, tipo) {
+function Instituicao(idInstituicao, nomeInstituicao, idCidade, tipo) {
     this.id = idInstituicao;
     this.nome = nomeInstituicao;
+    this.idCidade = idCidade;
     this.tipo = tipo;
     this.metas = [];
 }
@@ -223,7 +224,7 @@ function recuperarInstituicoes() {
                 xmlRequest.open("GET", url, false);
                 xmlRequest.send(null);
                 if (xmlRequest.readyState === 4) {
-                    listarInstituicoes(JSON.parse(xmlRequest.response), tipo);
+                    listarInstituicoes(JSON.parse(xmlRequest.response), tipo, municipio);
                 }
             }
         }
@@ -235,20 +236,118 @@ function recuperarInstituicoes() {
  * @param response resposta da base de dados
  * @param tipo tipo de instituições recuperadas
  */
-function listarInstituicoes(response, tipo) {
+function listarInstituicoes(response, tipo, municipio) {
     limparArray(instituicoes);
     if (response) {
         if (tipo == "ies") {
             for (var i in response) {
-                instituicoes.push(new Instituicao(response[i]["dim:es:instituicao:id"], response[i]["dim:es:instituicao:nome"], tipo));
+                instituicoes.push(new Instituicao(response[i]["dim:es:instituicao:id"], response[i]["dim:es:instituicao:nome"], municipio, tipo));
             }
         } else {
             for (var i in response) {
-                instituicoes.push(new Instituicao(response[i]["dim:escola:id"], response[i]["dim:escola:nome"], tipo));
+                instituicoes.push(new Instituicao(response[i]["dim:escola:id"], response[i]["dim:escola:nome"], municipio, tipo));
             }
         }
     }
+
+    // função que remove duplicados do vetor instituições
+    // não parametrizada
+    removeDuplicados();
+
     console.log(instituicoes);
+}
+
+// remove itens duplicados de vetores de objeto com base em um atributo escolhido como índice
+// retirado de https://www.geeksforgeeks.org/how-to-remove-duplicates-from-an-array-of-objects-using-javascript/
+
+function removeDuplicados() {
+
+    //  vetor temporário
+    var instituicoes2 = [];
+    instituicoes2 = instituicoes;
+
+    // objeto vazio
+    var uniqueObject = {};
+
+    // Loop for the array elements
+    for (var i in instituicoes2) {
+
+        // obtêm id(instituição)
+        objTitle = instituicoes2[i]['id'];
+
+        // utiliza id como índice
+        uniqueObject[objTitle] = instituicoes2[i];
+    }
+
+    // zerar vetor original
+    instituicoes = [];
+
+    // laço para armazenar valores únicos
+    for (i in uniqueObject) {
+        instituicoes.push(uniqueObject[i]);
+    }
+
+}
+
+
+// calcula nota da escola com base na meta 1.1
+function calcularNotaEscolaMeta11(idEscola, municipio, index) {
+    var linkMeta11a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=dim:escola:id" +
+        "&filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:matricula:censo:ano==2017;dim:escola:id==" + idEscola;
+    var linkMeta11b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + municipio + "/v/93/C287/6562"; // 5 anos
+    var linkMeta11c = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + municipio + "/v/93/C287/6561"; // 4 anos
+
+    var meta11a;
+    var meta11b;
+    var meta11c;
+
+    var xmlRequest = new XMLHttpRequest();
+    var data;
+
+    xmlRequest.open("GET", linkMeta11a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        data = (JSON.parse(xmlRequest.response));
+        if (data[0] !== undefined)  {
+            meta11a = parseInt(data[0]["met:count:matricula:id"]);
+            //console.log("Ranking Meta11a: " + meta11a);
+        }
+    }
+
+    xmlRequest.open("GET", linkMeta11b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        data = (JSON.parse(xmlRequest.response));
+        if (data[1] !== undefined){
+            meta11b = parseInt(data[1]["V"]);
+            //console.log("Ranking Meta11b: " + meta11b);
+        }
+    }
+
+    xmlRequest.open("GET", linkMeta11c, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        data = (JSON.parse(xmlRequest.response));
+        if (data[1] !== undefined){
+            meta11c = parseInt(data[1]["V"]);
+            //console.log("Ranking Meta11c: " + meta11c);
+        }
+    }
+
+    if (meta11a !== undefined) {
+        instituicoes[index].nota = (meta11a / (meta11b + meta11c)) * 100;
+    } else {
+        instituicoes[index].nota = 0;
+    }
+
+    //console.log(instituicoes[index].nome + " Nota = " + instituicoes[index].nota);
+
+}
+
+// ordena em ordem crescente
+// função definida para aplicação do método sort no vetor instituições
+function ordenarNota(a, b) {
+    return b.nota - a.nota;
 }
 
 /**
@@ -259,6 +358,20 @@ function itemMetaMudado() {
     //TODO: Limpar a lista do ranking da interface
     limparListaRanking();
     //TODO: recalcular as metas para cada instituição da lista
+
+    for (var i in instituicoes) {
+        calcularNotaEscolaMeta11(instituicoes[i].id, instituicoes[i].idCidade, i);
+    }
+
+    // ordenação do vetor conforme nota da meta
+    instituicoes.sort(ordenarNota);
+
+    // imprime vetor no console
+    /* for (var i in instituicoes) {
+        console.log(instituicoes[i].nome + " Nota = " + instituicoes[i].nota);
+    } */
+
+
     //TODO: reordenar a lista
     var listaMetas = document.getElementById("selecionar_meta");
 
@@ -360,7 +473,16 @@ function mostrarRanking(instituicoes, idMeta) {
 
                 li.setAttribute("class", "list-group-item list-group-item-action d-flex justify-content-between align-items-center");
                 span.setAttribute('class', "badge badge-primary badge-pill");
-                li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome;
+
+                // raking com percentual da meta
+                if (instituicoes[i] !== undefined) {
+                    li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome + " " + instituicoes[i].nota.toFixed(2) + "%";
+                } else {
+                    li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome;
+                }
+
+                // linha antiga - somente escola
+                // li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome;
 
                 for (var j in instituicoes[i].metas){
                     if (instituicoes[i].metas[j].id === idMeta){
