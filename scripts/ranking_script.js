@@ -290,20 +290,30 @@ function removeDuplicados() {
 }
 
 
-// calcula nota da escola com base na meta 1.1
+// calcula nota da escola com base na meta 1.1 e 1.2
 function calcularNotaEscolaMeta11(idEscola, municipio, index) {
+
+    // links para recuperar informações
     var linkMeta11a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=met:count:matricula:id&dimensions=dim:escola:id" +
         "&filters=dim:matricula:idade==4,dim:matricula:idade==5;dim:matricula:censo:ano==2017;dim:escola:id==" + idEscola;
     var linkMeta11b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + municipio + "/v/93/C287/6562"; // 5 anos
     var linkMeta11c = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + municipio + "/v/93/C287/6561"; // 4 anos
+    var linkMeta12a = "https://biod.c3sl.ufpr.br/api/v1/data?metrics=&dimensions=dim:escola:id,dim:matricula:id&" +
+        "filters=dim:matricula:idade==0,dim:matricula:idade==1,dim:matricula:idade==2,dim:matricula:idade==3;" +
+        "dim:escola:id==" + idEscola;
+    var linkMeta12b = "http://api.sidra.ibge.gov.br/values/t/1378/n6/" + municipio + "/v/93/C287/93070";
 
+    // variáveis temporárias
     var meta11a;
     var meta11b;
     var meta11c;
+    var meta12a;
+    var meta12b;
 
     var xmlRequest = new XMLHttpRequest();
     var data;
 
+    // recupação de dados
     xmlRequest.open("GET", linkMeta11a, false);
     xmlRequest.send(null);
     if (xmlRequest.readyState === 4) {
@@ -334,6 +344,27 @@ function calcularNotaEscolaMeta11(idEscola, municipio, index) {
         }
     }
 
+    xmlRequest.open("GET", linkMeta12a, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        meta12a = (JSON.parse(xmlRequest.response));
+        if (data[0] !== undefined){
+            meta12a = parseInt(data[0]["met:count:matricula:id"]);
+            //console.log("Ranking Meta 1.2 a: " + meta12a);
+        }
+    }
+
+    xmlRequest.open("GET", linkMeta12b, false);
+    xmlRequest.send(null);
+    if (xmlRequest.readyState === 4) {
+        meta12b = (JSON.parse(xmlRequest.response));
+        if (data[1] !== undefined) {
+            meta12b = parseInt(data[1]["V"]);
+            //console.log("Ranking Meta12b: " + meta12b);
+        }
+    }
+
+    // definição da nota pela métrica 1.1
     if (meta11a !== undefined) {
         instituicoes[index].nota = (meta11a / (meta11b + meta11c)) * 100;
     } else {
@@ -461,6 +492,7 @@ function getWords(frase) {
  */
 function mostrarRanking(instituicoes, idMeta) {
     if (instituicoes){
+        var coberturaCidade = 0; //armazena percentual total de abrangencia para o município
         var listaDiv = document.getElementById("resultado");
         var lista = document.createElement('ul');
         lista.setAttribute("class", "list-group");
@@ -479,6 +511,7 @@ function mostrarRanking(instituicoes, idMeta) {
                     // exibe somente escolas com dados para a métrica escolhida
                     if (instituicoes[i].nota !== 0) {
                         li.innerText = parseInt(i) + 1 + " -   " + instituicoes[i].nota.toFixed(2) + "%   - "+ instituicoes[i].nome;
+                        coberturaCidade += instituicoes[i].nota;
                     }
                 } else {
                     li.innerText = parseInt(i) + 1 + ". " + instituicoes[i].nome;
@@ -493,8 +526,13 @@ function mostrarRanking(instituicoes, idMeta) {
                         break;
                     }
                 }
-                li.appendChild(span);
-                lista.appendChild(li);
+
+                // não linhas de instituições que não correspondem a meta selecionada
+                if (instituicoes[i].nota !== 0) {
+                    li.appendChild(span);
+                    lista.appendChild(li);
+                }
+
             }
         }else{
             //mostrar mensagem que nenhuma instituição foi recuperada?
@@ -510,6 +548,11 @@ function mostrarRanking(instituicoes, idMeta) {
             li.appendChild(span);
             lista.appendChild(li);
         }
+
+        //  exibe cobertura de crianças matriculadas em função do total de crianças da cidade
+        li.innerText = "Total = " + coberturaCidade.toFixed(2) + "%  de cobertura escolar"
+        li.appendChild(span);
+        lista.appendChild(li);
 
         listaDiv.appendChild(lista);
     }
