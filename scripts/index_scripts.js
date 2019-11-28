@@ -1,4 +1,4 @@
-var estados;
+var estadosID = [];
 var escolas;
 var escolasNomesApenas = [];
 const separadorCidadeEscola = " - ";
@@ -7,7 +7,7 @@ window.onload = function () {
     if (self.fetch) {
         // execute minha solicitação do fetch
         console.log("Iniciando busca de estados");
-        fetch("https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:estado:nome")
+        fetch("https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:estado:nome,dim:estado:id")
             .then(response => {
                 return response.json();
             })
@@ -20,6 +20,11 @@ window.onload = function () {
 
 };
 
+function estados(nomeEstado, idEstado) {
+    this.nome = nomeEstado;
+    this.id = idEstado;
+}
+
 
 function listarEstados(estadosRetornados) {
     //console.log(estadosRetornados);
@@ -28,10 +33,12 @@ function listarEstados(estadosRetornados) {
     var estadosOrdenados = [];
     for (var i in estadosRetornados) {
         var nome = estadosRetornados[i]["dim:estado:nome"];
+        estadosID.push(new estados(estadosRetornados[i]["dim:estado:nome"], estadosRetornados[i]["dim:estado:id"]));
         estadosOrdenados.push(nome);
     }
     estadosOrdenados.sort();
     console.log(estadosOrdenados);
+    console.log(estadosID);
 
     //testar o tamanho dos estados selecionados
     // e adiciona ao select da página index
@@ -48,8 +55,17 @@ function itemEstadoMudado() {
     var itemSelecionado = sel.options[sel.selectedIndex];
     if (self.fetch) {
         //realizar busca pelo fetch
-        var link = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:escola:nome,dim:escola:id,dim:cidade:nome&filters=dim:estado:nome==";
-        link += itemSelecionado.value.toString();
+
+        var temp = estadosID.find(obj => obj.nome === itemSelecionado.value.toString());
+        console.log(temp.id);
+
+        var link = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:escola:nome,dim:escola:id,dim:cidade:nome&filters=dim:estado:id==";
+        link += temp.id;
+
+        console.log(link);
+
+        // var link = "https://biod.c3sl.ufpr.br/api/v1/data?metrics&dimensions=dim:escola:nome,dim:escola:id,dim:cidade:nome&filters=dim:estado:id==";
+        // link += itemSelecionado.value.toString();
         fetch(link)
             .then(response => {
                 return response.json();
